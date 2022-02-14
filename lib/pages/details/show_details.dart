@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tv_maze/arguments/show_arguments.dart';
 import 'package:tv_maze/generic_widgets/button.dart';
 import 'package:tv_maze/models/show.dart';
 import 'package:tv_maze/pages/episodes/episodes_page.dart';
@@ -67,7 +68,7 @@ class ShowDetails extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Button(texto: 'Seasons & Episodes', color: Colors.purpleAccent,tamano: 15, accion:() => _sendToEpisodesPage(context))
+                      Button(texto: 'Seasons & Episodes', color: Colors.purpleAccent,tamano: 15, accion:() => _sendToEpisodesPage(context, show.id))
                     ],
                   ),
                  
@@ -95,8 +96,10 @@ class ShowDetails extends StatelessWidget {
       ],
     );
   }
-  Future<void> _sendToEpisodesPage(BuildContext context) async {
-    Navigator.pushNamed(context, EpisodePage.routeName);
+  Future<void> _sendToEpisodesPage(BuildContext context, int showId) async {
+    Navigator.pushNamed(context, EpisodePage.routeName, arguments: ShowArguments(
+                          showId,
+                        ),);
   }
 
   Widget _getGenres(){

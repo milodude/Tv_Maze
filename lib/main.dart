@@ -55,7 +55,6 @@ class TvMazeApp extends StatelessWidget {
       initialRoute: HomePage.routeName,
       routes: {
         SearchShowPage.routeName: (_) => const SearchShowPage(),
-        EpisodePage.routeName: (_) => EpisodePage(),
       },
       onGenerateRoute: (settings) {
         // If you push the PassArguments route
@@ -64,6 +63,15 @@ class TvMazeApp extends StatelessWidget {
           return MaterialPageRoute(
             builder: (context) {
               return ShowDetailsPage(showId: args.showId,);
+            },
+          );
+        }
+
+        if (settings.name == EpisodePage.routeName) {
+          final args = settings.arguments as ShowArguments;
+          return MaterialPageRoute(
+            builder: (context) {
+              return EpisodePage(showId: args.showId,);
             },
           );
         }
