@@ -35,6 +35,8 @@ class _SeasonEpisodesState extends State<SeasonEpisodes> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text('Season', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+            const SizedBox(width: 10,),
             DropdownSeasons(
                 _setSelectedSeason, widget.seasonList, widget.seasonList[0]),
           ],

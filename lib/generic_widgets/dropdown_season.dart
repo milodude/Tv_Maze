@@ -48,7 +48,7 @@ class _DropdownSeasonsState extends State<DropdownSeasons> {
   Widget build(BuildContext context) {
     return DropdownButton<Season>(
         value: dropdownValue,
-        icon: const Icon(Icons.arrow_downward),
+        icon: const Icon(Icons.arrow_downward, color: Colors.deepPurple,),
         iconSize: 24,
         elevation: 16,
         key: const Key("DropDown"),
