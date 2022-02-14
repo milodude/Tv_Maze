@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 
 class EpisodeService {
 
-  Future<List<Episode>?> getEpisodes(int id) async {
-    Uri uri = Uri.https(AppSettings.getConnectionString(), '/shows/$id/episodes');
+  Future<List<Episode>?> getEpisodes(int seasonId) async {
+    Uri uri = Uri.https(AppSettings.getConnectionString(), '/seasons/$seasonId/episodes');
     var response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {
       return null;

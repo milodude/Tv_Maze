@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tv_maze/models/episode.dart';
 import 'dart:math';
 
-class SeasonList extends StatelessWidget {
-  SeasonList({Key? key, required this.episodes}) : super(key: key);
+class EpisodesList extends StatelessWidget {
+  EpisodesList({Key? key, required this.episodes}) : super(key: key);
   final List<Episode>? episodes;
   final random = Random();
 

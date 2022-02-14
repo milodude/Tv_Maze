@@ -49,7 +49,7 @@ class TvMazeApp extends StatelessWidget {
       ),
       home: SafeArea(
           child: HomePage(
-        title: 'Home',
+        title: 'Maze Tv',
         showService: di<ShowService>(),
       )),
       initialRoute: HomePage.routeName,

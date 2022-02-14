@@ -12,6 +12,10 @@ class SeasonBloc extends Bloc<SeasonEvent, SeasonState> {
 
   SeasonBloc(this.seasonService) : super(SeasonInitialState()) {
     on<SeasonEvent>((event, emit) async{
+       if(event is ClearSeasonEvent) {
+        emit( const SeasonLoadedState(seasonList: []));
+      }
+
       if(event is LoadSeasonDataEvent){
         emit(SeasonLoadingState());
         List<Season>? seasonList = await seasonService.getSeasons(event.id);

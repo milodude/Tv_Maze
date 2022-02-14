@@ -13,4 +13,12 @@ class LoadSeasonDataEvent extends SeasonEvent{
   final int id;
 
   const LoadSeasonDataEvent(this.id);
+
+  @override
+  List<Object> get props => [];
+}
+
+class ClearSeasonEvent extends SeasonEvent{
+  @override
+  List<Object> get props => [];
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze/arguments/show_arguments.dart';
+import 'package:tv_maze/bloc/season/season_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/generic_widgets/image_unavailable.dart';
 import 'package:tv_maze/models/show.dart';
@@ -31,6 +32,8 @@ class ExpandedShowsGridView extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       context.read<ShowBloc>().add(LoadShowDetailsEvent(id: showList[index].id));
+                      context.read<SeasonBloc>().add(LoadSeasonDataEvent(showList[index].id));
+
                       Navigator.pushNamed(
                         context,
                         ShowDetailsPage.routeName,

@@ -12,4 +12,11 @@ class LoadEpisodeDataEvent extends EpisodeEvent{
   final int id;
 
   const LoadEpisodeDataEvent(this.id);
+  @override
+  List<Object> get props => [];
+}
+
+class ClearEpisodesEvent extends EpisodeEvent{
+  @override
+  List<Object> get props => [];
 }

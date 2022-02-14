@@ -1,7 +1,9 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_maze/bloc/episode/episode_bloc.dart';
+import 'package:tv_maze/generic_widgets/dropdown_season.dart';
 import 'package:tv_maze/models/season.dart';
-import 'package:tv_maze/pages/episodes/season_collapse.dart';
+import 'package:tv_maze/pages/episodes/episodes_list.dart';
 
 class SeasonEpisodes extends StatefulWidget {
   const SeasonEpisodes({
@@ -16,39 +18,59 @@ class SeasonEpisodes extends StatefulWidget {
 }
 
 class _SeasonEpisodesState extends State<SeasonEpisodes> {
+  late Season selectedSeason = widget.seasonList[0];
 
-  Widget _getCollapses(List<Season> seasonList){
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-
-      child: ListView.builder(
-                // the number of items in the list
-                itemCount: seasonList.length,
-    
-                // display each item of the product list
-                itemBuilder: (context, index) {
-                  return SeasonCollapse(seasonList: seasonList,title: 'Season ${index + 1} episodes',season: index + 1);
-                }),
-    );
+  _setSelectedSeason(Season season) {
+    setState(() {
+      selectedSeason = season;
+    });
+    context.read<EpisodeBloc>().add(LoadEpisodeDataEvent(season.id));
   }
 
   @override
   Widget build(BuildContext context) {
-    return ExpandableTheme(
-      data: const ExpandableThemeData(
-        iconColor: Colors.blue,
-        useInkWell: true,
-      ),
-      child: ListView(
-        physics: const BouncingScrollPhysics(),
-        children: <Widget>[
-          const Divider(
-            color: Colors.purple,
-          ),
-          _getCollapses(widget.seasonList),
-        ],
-      ),
+    return ListView(
+      physics: const BouncingScrollPhysics(),
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DropdownSeasons(
+                _setSelectedSeason, widget.seasonList, widget.seasonList[0]),
+          ],
+        ),
+        const Divider(
+          color: Colors.purple,
+        ),
+        BlocBuilder<EpisodeBloc, EpisodeState>(
+          builder: (context, state) {
+            if (state is EpisodeInitialState) {
+              context
+                  .read<EpisodeBloc>()
+                  .add(LoadEpisodeDataEvent(selectedSeason.id));
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  CircularProgressIndicator(),
+                ],
+              );
+            } else if (state is EpisodeLoadingState) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  CircularProgressIndicator(),
+                ],
+              );
+            } else if (state is EpisodeLoadedState) {
+              return EpisodesList(episodes: state.episodeList);
+            } else if (state is EpisodeErrorState) {
+              return const Text('Something went wrong!');
+            }
+
+            return const Text('Error while loading shows!');
+          },
+        ),
+      ],
     );
   }
 }

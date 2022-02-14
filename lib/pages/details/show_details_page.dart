@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_maze/bloc/season/season_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/pages/details/show_details.dart';
 
@@ -19,6 +20,7 @@ class ShowDetailsPage extends StatelessWidget {
 
               if (state is ShowInitialState) {
                 context.read<ShowBloc>().add(LoadShowDataEvent());
+                context.read<SeasonBloc>().add(LoadSeasonDataEvent(showId));
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:const [
@@ -50,6 +52,7 @@ class ShowDetailsPage extends StatelessWidget {
             ),
             onPressed: () {
               context.read<ShowBloc>().add(LoadShowDataEvent());
+              context.read<SeasonBloc>().add(ClearSeasonEvent());
               Navigator.pop(context);
             }),
       ),
