@@ -21,6 +21,7 @@ class _SearchShowPageState extends State<SearchShowPage> {
   }
 
   void backButtonAction(BuildContext context) {
+    FocusScope.of(context).unfocus();
     context.read<ShowBloc>().add(LoadShowDataEvent());
     Navigator.pop(context);
   }
@@ -28,6 +29,7 @@ class _SearchShowPageState extends State<SearchShowPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Search show'),
         automaticallyImplyLeading: false,
