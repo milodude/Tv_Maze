@@ -17,9 +17,8 @@ class Shows extends StatefulWidget {
 class _ShowsState extends State<Shows> {
   @override
   Widget build(BuildContext context) {
-    // ignore: sized_box_for_whitespace
-    return Container(
-      height: MediaQuery.of(context).size.height - 130,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.8,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
