@@ -1,10 +1,14 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' show Client;
 import 'package:tv_maze/mappers/show_mapper.dart';
 import 'package:tv_maze/models/show.dart';
 import 'package:tv_maze/utils/app_settings.dart';
 
 class ShowService {
+  final Client http;
+
+  ShowService(this.http);
+
   Future<List<Show>?> getShows() async {
     Uri uri = Uri.https(AppSettings.getConnectionString(), '/shows');
     var response = await http.get(uri, headers: AppSettings.getHeader());
@@ -14,7 +18,6 @@ class ShowService {
 
     List<dynamic> showsResponseList = json.decode(response.body);
     List<Show> fetchedShowList = <Show>[];
-
     for (var show in showsResponseList) {
       var dto = ShowMapper.map(show);
       fetchedShowList.add(dto);
