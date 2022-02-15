@@ -10,6 +10,7 @@ dependencies:
   bloc: ^8.0.2
   build_runner: ^2.1.7
   cupertino_icons: ^1.0.2
+  draggable_fab: ^0.1.4
   equatable: ^2.0.3
   expandable: ^5.0.1
   flutter:
