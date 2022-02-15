@@ -20,9 +20,9 @@ class _SearchShowPageState extends State<SearchShowPage> {
     context.read<ShowBloc>().add(LoadShowSearchDataEvent(query: text));
   }
 
-void backButtonAction(BuildContext context) {
+  void backButtonAction(BuildContext context) {
     context.read<ShowBloc>().add(LoadShowDataEvent());
-          Navigator.pop(context);
+    Navigator.pop(context);
   }
 
   @override
@@ -63,6 +63,18 @@ void backButtonAction(BuildContext context) {
               } else if (state is ShowLoadingState) {
                 return const CircularProgressIndicator();
               } else if (state is ShowListLoadedState) {
+                if (state.showList.isEmpty) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      SizedBox(height: 10,),
+                      Text('Aw! No shows found for the input.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      SizedBox(height: 10,),
+                      Text('Please try with another show',  style: TextStyle(fontSize: 16,)),
+                    ],
+                  );
+                }
+
                 return ExpandedShowsGridView(
                   showList: state.showList,
                 );
