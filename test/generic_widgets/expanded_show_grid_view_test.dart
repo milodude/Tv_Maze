@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:tv_maze/generic_widgets/expanded_show_grid_view.dart';
 import 'package:tv_maze/models/show.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+import 'expanded_show_grid_view_test.mocks.dart';
+
+@GenerateMocks([],
+  customMocks: [
+    MockSpec<NavigatorObserver>(
+      returnNullOnMissingStub: true,
+    )
+  ],)
+
 void main() {
+  var mockNavigatorObserver = MockNavigatorObserver();
 
    Widget widgetSetupToBeTested({required Widget child}) {
     return MaterialApp(
       home: Column( children: [child]),
+      navigatorObservers: [mockNavigatorObserver],
     );
   }
   

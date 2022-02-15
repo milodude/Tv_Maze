@@ -31,63 +31,60 @@ class ExpandedShowsGridView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
-                  child: GestureDetector(
-                      onTap: () {
-                        context
-                            .read<ShowBloc>()
-                            .add(LoadShowDetailsEvent(id: showList[index].id));
-                        context
-                            .read<SeasonBloc>()
-                            .add(LoadSeasonDataEvent(showList[index].id));
+                  child: Card(
+                    key: const Key(Constants.gridViewCardKey),
+                    child: Hero(
+                      tag: showList[index].id.toString(),
+                      child: Material(
+                        child: InkWell(
+                          key: const Key(Constants.gridViewInkwellKey),
+                          onTap: () {
+                            context.read<ShowBloc>().add(
+                                LoadShowDetailsEvent(id: showList[index].id));
+                            context
+                                .read<SeasonBloc>()
+                                .add(LoadSeasonDataEvent(showList[index].id));
 
-                        Navigator.pushNamed(
-                          context,
-                          ShowDetailsPage.routeName,
-                          arguments: ShowArguments(
-                            showList[index].id,
-                          ),
-                        );
-                      },
-                      child: Card(
-                        key: const Key(Constants.gridViewCardKey),
-                        child: Hero(
-                          tag: showList[index].id.toString(),
-                          child: Material(
-                            child: InkWell(
-                              onTap: () => {},
-                              child: GridTile(
-                                key: const Key(Constants.gridViewTileKey),
-                                footer: Opacity(
-                                  opacity: 0.6,
-                                  child: Container(
-                                    color: const Color.fromARGB(
-                                        255, 246, 241, 247),
-                                    child: ListTile(
-                                      dense: true,
-                                      leading: Text(
-                                        showList[index].name,
-                                        style: const TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
+                            Navigator.pushNamed(
+                              context,
+                              ShowDetailsPage.routeName,
+                              arguments: ShowArguments(
+                                showList[index].id,
+                              ),
+                            );
+                          },
+                          child: GridTile(
+                            key: const Key(Constants.gridViewTileKey),
+                            footer: Opacity(
+                              opacity: 0.6,
+                              child: Container(
+                                color: const Color.fromARGB(255, 246, 241, 247),
+                                child: ListTile(
+                                  dense: true,
+                                  leading: Text(
+                                    showList[index].name,
+                                    style: const TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                                child: showList[index].image != null
-                                    ? Image.network(
-                                        showList[index].image['medium'] ??
-                                            showList[index].image['original'],
-                                        fit: BoxFit.cover,
-                                        height: 250.0,
-                                        width: 130.0,
-                                      )
-                                    : const ImageUnavailable(),
                               ),
                             ),
+                            child: showList[index].image != null
+                                ? Image.network(
+                                    showList[index].image['medium'] ??
+                                        showList[index].image['original'],
+                                    fit: BoxFit.cover,
+                                    height: 250.0,
+                                    width: 130.0,
+                                  )
+                                : const ImageUnavailable(),
                           ),
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             );
