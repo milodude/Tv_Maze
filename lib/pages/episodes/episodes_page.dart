@@ -6,15 +6,20 @@ import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
 import 'package:tv_maze/pages/episodes/season_episodes.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Episodes page where you can see all of the seasons episodes
 class EpisodePage extends StatefulWidget {
+  ///Constructor that takes a show id as a parameter
   const EpisodePage({Key? key, required this.showId}) : super(key: key);
+  ///Parameter show id
   final int showId;
+  ///Route name for this page
   static const routeName = Constants.showEpisodesPageRouteName;
 
   @override
   State<EpisodePage> createState() => _EpisodePageState();
 }
 
+///Method to execute when the floating action back button is pressed
 void backButtonAction(BuildContext context) {
   context.read<EpisodeBloc>().add(ClearEpisodesEvent());
   Navigator.pop(context);

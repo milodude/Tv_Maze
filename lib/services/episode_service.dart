@@ -4,7 +4,9 @@ import 'package:tv_maze/utils/app_settings.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+///Episode service class that handles the API requests
 class EpisodeService {
+  ///Method that gets all episodes for a season. Season Id is required 
   Future<List<Episode>?> getEpisodes(int seasonId) async {
     Uri uri = Uri.https(
         AppSettings.getConnectionString(), '/seasons/$seasonId/episodes');

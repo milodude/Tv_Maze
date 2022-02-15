@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/generic_widgets/expanded_show_grid_view.dart';
-import 'package:tv_maze/services/show_service.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Widget that renders a lis of  shows
 class Shows extends StatefulWidget {
-  const Shows({Key? key, required this.showService}) : super(key: key);
-
-  final ShowService showService;
+  ///Copnstructor that takes a showService as a parameter
+  const Shows({Key? key}) : super(key: key);
 
   @override
   _ShowsState createState() => _ShowsState();

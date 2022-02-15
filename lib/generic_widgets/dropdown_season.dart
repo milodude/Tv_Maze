@@ -3,12 +3,15 @@ import 'package:tv_maze/models/season.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class DropdownSeasons extends StatefulWidget {
+  ///Constructor that takes a function a List of season values and the item from that list that is selected
   const DropdownSeasons(this.setSelected, this.seasonList, this.selected,
       {Key? key})
       : super(key: key);
-  
+  ///Function to execute when a  value is selected.Should take a Season object as a parameter.
   final Function setSelected;
+  ///Season list that must be provided in order to populate the dropdown
   final List<Season> seasonList;
+  ///Season that is selected when loading the widget.
   final Season? selected;
 
   @override

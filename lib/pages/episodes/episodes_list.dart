@@ -4,10 +4,13 @@ import 'dart:math';
 
 import 'package:tv_maze/utils/constants.dart';
 
+///Widget that renders all of the episodes
 class EpisodesList extends StatelessWidget {
+  ///Constructor that takes a list of episodes
   EpisodesList({Key? key, required this.episodes}) : super(key: key);
+  ///Parameter list of episodes. 
   final List<Episode>? episodes;
-  final random = Random();
+  final _random = Random();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,7 @@ class EpisodesList extends StatelessWidget {
                           AssetImage(Constants.imageUnavailablePath)),
               trailing: Icon(
                 Icons.movie,
-                color: colors[random.nextInt(colors.length)],
+                color: colors[_random.nextInt(colors.length)],
               ),
               isThreeLine: true,
             ),

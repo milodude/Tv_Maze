@@ -6,12 +6,14 @@ import 'package:tv_maze/models/season.dart';
 import 'package:tv_maze/pages/episodes/episodes_list.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Widget that renders the page and the dropdown to select a season
 class SeasonEpisodes extends StatefulWidget {
+  ///Constructor that takes a Season List
   const SeasonEpisodes({
     Key? key,
     required this.seasonList,
   }) : super(key: key);
-
+  ///Property
   final List<Season> seasonList;
 
   @override

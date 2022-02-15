@@ -7,7 +7,9 @@ import 'package:tv_maze/services/show_service.dart';
 part 'show_event.dart';
 part 'show_state.dart';
 
+///Bloc for managing Episode states
 class ShowBloc extends Bloc<ShowEvent, ShowState> {
+  ///Constructor.Parameter showService is required.
   ShowBloc(this.showService) : super(ShowInitialState()) {
     on<ShowEvent>((event, emit) async {
       if (event is LoadShowDataEvent) {
@@ -36,7 +38,7 @@ class ShowBloc extends Bloc<ShowEvent, ShowState> {
       }
     });
   }
-
+  ///Property
   final ShowService showService;
 
 }

@@ -5,9 +5,12 @@ import 'package:tv_maze/models/show.dart';
 import 'package:tv_maze/pages/episodes/episodes_page.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Widget that renders the details of a show
 class ShowDetails extends StatelessWidget {
+  ///Constructor which takes a show
   const ShowDetails({Key? key, required this.show}) : super(key: key);
 
+  ///
   final Show show;
 
   Widget _getBody(BuildContext context) {

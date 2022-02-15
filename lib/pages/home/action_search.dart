@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tv_maze/pages/search/search_show_page.dart';
 
+///Widget to be used to show a small icon in the AppBar to go to the search page
 class ActionSearch extends StatelessWidget {
+  ///Constructor
   const ActionSearch({Key? key}) : super(key: key);
 
   @override

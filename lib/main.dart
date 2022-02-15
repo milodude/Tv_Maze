@@ -19,7 +19,9 @@ void main() async {
   runApp(const AppState());
 }
 
+///State of the app. Represents where the blocs are confugured.
 class AppState extends StatelessWidget {
+  ///constructor
   const AppState({Key? key}) : super(key: key);
 
   @override
@@ -37,7 +39,9 @@ class AppState extends StatelessWidget {
   }
 }
 
+///Main app for the Maze Tv app
 class TvMazeApp extends StatelessWidget {
+  ///constructor
   const TvMazeApp({Key? key}) : super(key: key);
 
   @override
@@ -48,10 +52,9 @@ class TvMazeApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: SafeArea(
+      home: const SafeArea(
           child: HomePage(
         title: 'Maze Tv',
-        showService: di<ShowService>(),
       )),
       initialRoute: HomePage.routeName,
       routes: {

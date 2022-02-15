@@ -6,12 +6,18 @@ import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
 import 'package:tv_maze/pages/details/show_details.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Page that presents the details of a show
 class ShowDetailsPage extends StatelessWidget {
+  ///constructor that takes  a ShowId
   const ShowDetailsPage({Key? key, required this.showId}) : super(key: key);
 
+  ///Route name for this page
   static const routeName = Constants.showDetailsPageRouteName;
+
+  ///
   final int showId;
 
+  ///Action to be performed when the floating action button is pressed
   void backButtonAction(BuildContext context) {
     context.read<ShowBloc>().add(LoadShowDataEvent());
     context.read<SeasonBloc>().add(ClearSeasonEvent());

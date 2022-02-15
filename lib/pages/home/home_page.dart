@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tv_maze/pages/home/action_search.dart';
 import 'package:tv_maze/pages/home/shows.dart';
-import 'package:tv_maze/services/show_service.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Home page or landing page
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title, required this.showService})
+  ///constructor that takes a title a parameter
+  const HomePage({Key? key, required this.title})
       : super(key: key);
+  ///Title that will hold the Home Page
   final String title;
+  ///Route name of the home page
   static const routeName = Constants.homePageRouteName;
-  final ShowService showService;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -42,9 +44,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 20,
             ),
-            Shows(
-              showService: widget.showService,
-            )
+            const Shows()
           ],
         ));
   }

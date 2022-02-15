@@ -1,6 +1,7 @@
 import 'package:tv_maze/models/show.dart';
-
+///Show mapper
 class ShowMapper {
+  ///Method that maps a dynamic show, tipycally a json body that contains a dynamic show into a show object
   static Show map(dynamic show) {
     try {
       return Show(

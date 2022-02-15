@@ -9,12 +9,15 @@ import 'package:tv_maze/pages/details/show_details_page.dart';
 import 'package:tv_maze/pages/search/search_no_results_found.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Widget that shows you a list of shows
 class ExpandedShowsGridView extends StatelessWidget {
+  ///Constructor that takes  a list of shows.
   const ExpandedShowsGridView({
     Key? key,
     required this.showList,
   }) : super(key: key);
 
+  ///Parameter. A list of shows.
   final List<Show> showList;
   @override
   Widget build(BuildContext context) {
@@ -77,8 +80,10 @@ class ExpandedShowsGridView extends StatelessWidget {
                                 ),
                                 child: showList[index].image != null
                                     ? Image.network(
-                                        showList[index].image[Constants.imageSizeMedium] ??
-                                            showList[index].image[Constants.imageSizeOriginal],
+                                        showList[index].image[
+                                                Constants.imageSizeMedium] ??
+                                            showList[index].image[
+                                                Constants.imageSizeOriginal],
                                         fit: BoxFit.cover,
                                         height: 250.0,
                                         width: 130.0,

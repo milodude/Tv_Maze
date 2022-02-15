@@ -5,9 +5,11 @@ import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
 import 'package:tv_maze/generic_widgets/expanded_show_grid_view.dart';
 import 'package:tv_maze/utils/constants.dart';
 
+///Page where you can search for a show
 class SearchShowPage extends StatefulWidget {
+  ///Constructor
   const SearchShowPage({Key? key}) : super(key: key);
-
+  ///Route name for this page
   static const routeName = Constants.searchShowPageRouteName;
   @override
   _SearchShowPageState createState() => _SearchShowPageState();

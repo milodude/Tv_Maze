@@ -5,9 +5,10 @@ import 'package:tv_maze/services/episode_service.dart';
 
 part 'episode_event.dart';
 part 'episode_state.dart';
-
+///Bloc for managing Episode states
 class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
-  EpisodeBloc(this.episodeService) : super(EpisodeInitialState()) {
+  ///Constructor.Parameter episodeService is required.
+  EpisodeBloc(this._episodeService) : super(EpisodeInitialState()) {
     on<EpisodeEvent>((event, emit) async {
       if (event is ClearEpisodesEvent) {
         emit(const EpisodeLoadedState(episodeList: []));
@@ -15,11 +16,11 @@ class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
 
       if (event is LoadEpisodeDataEvent) {
         emit(EpisodeLoadingState());
-        var episodeList = await episodeService.getEpisodes(event.id);
+        var episodeList = await _episodeService.getEpisodes(event.seasonId);
         emit(EpisodeLoadedState(episodeList: episodeList));
       }
     });
   }
-  
-  final EpisodeService episodeService;
+
+  final EpisodeService _episodeService;
 }
