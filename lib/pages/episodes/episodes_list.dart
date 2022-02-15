@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tv_maze/models/episode.dart';
 import 'dart:math';
 
+import 'package:tv_maze/utils/constants.dart';
+
 class EpisodesList extends StatelessWidget {
   EpisodesList({Key? key, required this.episodes}) : super(key: key);
   final List<Episode>? episodes;
@@ -34,13 +36,13 @@ class EpisodesList extends StatelessWidget {
               leading: episodes!.elementAt(i).image != null
                   ? CircleAvatar(
                       backgroundImage: NetworkImage(
-                        episodes!.elementAt(i).image['medium'] ??
-                            episodes!.elementAt(i).image['original'],
+                        episodes!.elementAt(i).image[Constants.imageSizeMedium] ??
+                            episodes!.elementAt(i).image[Constants.imageSizeOriginal],
                       ),
                     )
                   : const CircleAvatar(
                       backgroundImage:
-                          AssetImage('assets/images/unavailable-image.jpg')),
+                          AssetImage(Constants.imageUnavailablePath)),
               trailing: Icon(
                 Icons.movie,
                 color: colors[random.nextInt(colors.length)],

@@ -4,6 +4,7 @@ import 'package:tv_maze/bloc/episode/episode_bloc.dart';
 import 'package:tv_maze/generic_widgets/dropdown_season.dart';
 import 'package:tv_maze/models/season.dart';
 import 'package:tv_maze/pages/episodes/episodes_list.dart';
+import 'package:tv_maze/utils/constants.dart';
 
 class SeasonEpisodes extends StatefulWidget {
   const SeasonEpisodes({
@@ -66,10 +67,10 @@ class _SeasonEpisodesState extends State<SeasonEpisodes> {
             } else if (state is EpisodeLoadedState) {
               return EpisodesList(episodes: state.episodeList);
             } else if (state is EpisodeErrorState) {
-              return const Text('Something went wrong!');
+              return const Text(Constants.blocErrorText);
             }
 
-            return const Text('Error while loading shows!');
+            return const Text(Constants.blocErrorWhileLoadingText + 'Episodes!');
           },
         ),
       ],

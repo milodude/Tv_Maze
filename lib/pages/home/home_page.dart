@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tv_maze/pages/home/action_search.dart';
 import 'package:tv_maze/pages/home/shows.dart';
 import 'package:tv_maze/services/show_service.dart';
+import 'package:tv_maze/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title, required this.showService}) : super(key: key);
   final String title;
-  static const routeName = "/";
+  static const routeName = Constants.homePageRouteName;
   final ShowService showService;
 
   @override

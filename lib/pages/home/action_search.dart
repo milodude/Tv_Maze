@@ -7,18 +7,18 @@ class ActionSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: IconButton(
-                      hoverColor: Colors.purple[400],
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, SearchShowPage.routeName);
-                      },
-                      color: Colors.white,
-                      icon: const Icon(
-                        Icons.search,
-                        color: Colors.blueAccent,
-                      )),
-                );
+      backgroundColor: Colors.white,
+      child: IconButton(
+        hoverColor: Colors.purple[400],
+        onPressed: () {
+          Navigator.pushNamed(context, SearchShowPage.routeName);
+        },
+        color: Colors.white,
+        icon: const Icon(
+          Icons.search,
+          color: Colors.blueAccent,
+        ),
+      ),
+    );
   }
 }

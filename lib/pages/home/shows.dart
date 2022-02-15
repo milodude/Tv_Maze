@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/generic_widgets/expanded_show_grid_view.dart';
 import 'package:tv_maze/services/show_service.dart';
+import 'package:tv_maze/utils/constants.dart';
 
 class Shows extends StatefulWidget {
   const Shows({Key? key, required this.showService}) : super(key: key);
@@ -42,10 +43,10 @@ class _ShowsState extends State<Shows> {
             } else if (state is ShowListLoadedState) {
               return ExpandedShowsGridView(showList: state.showList);
             } else if (state is ShowErrorState) {
-              return const Text('Something went wrong!');
+              return const Text(Constants.blocErrorText + 'Shows!');
             }
 
-            return const Text('Error while loading shows!');
+            return const Text(Constants.blocErrorWhileLoadingText);
           })
         ],
       ),

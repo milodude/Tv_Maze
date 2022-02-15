@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/generic_widgets/expanded_show_grid_view.dart';
+import 'package:tv_maze/utils/constants.dart';
 
 class SearchShowPage extends StatefulWidget {
   const SearchShowPage({Key? key}) : super(key: key);
 
-  static const routeName = "SearchShowPage";
+  static const routeName = Constants.searchShowPageRouteName;
   @override
   _SearchShowPageState createState() => _SearchShowPageState();
 }
@@ -30,7 +31,6 @@ class _SearchShowPageState extends State<SearchShowPage> {
           const SizedBox(
             height: 5,
           ),
-          //Input(inputController, TextInputType.text, 'Show name..', 'Search show by name', Icons.search_sharp),
           TextFormField(
             controller: inputController,
             keyboardType: TextInputType.text,
@@ -61,10 +61,10 @@ class _SearchShowPageState extends State<SearchShowPage> {
                   showList: state.showList,
                 );
               } else if (state is ShowErrorState) {
-                return const Text('Something went wrong!');
+                return const Text(Constants.blocErrorText);
               }
 
-              return const Text('Error while loading shows!');
+              return const Text(Constants.blocErrorWhileLoadingText + 'Shows!');
             },
           )
         ],
