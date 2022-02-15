@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze/bloc/season/season_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
+import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
 import 'package:tv_maze/pages/details/show_details.dart';
 import 'package:tv_maze/utils/constants.dart';
 
@@ -10,6 +11,12 @@ class ShowDetailsPage extends StatelessWidget {
 
   static const routeName = Constants.showDetailsPageRouteName;
   final int showId;
+
+  void backButtonAction(BuildContext context) {
+    context.read<ShowBloc>().add(LoadShowDataEvent());
+    context.read<SeasonBloc>().add(ClearSeasonEvent());
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +50,8 @@ class ShowDetailsPage extends StatelessWidget {
           }),
         ),
         extendBodyBehindAppBar: true,
-        floatingActionButton: FloatingActionButton(
-          mini: true,
-          child: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            context.read<ShowBloc>().add(LoadShowDataEvent());
-            context.read<SeasonBloc>().add(ClearSeasonEvent());
-            Navigator.pop(context);
-          },
-        ),
+        floatingActionButton:
+            BackFloatingActionButton(action: backButtonAction),
       ),
     );
   }

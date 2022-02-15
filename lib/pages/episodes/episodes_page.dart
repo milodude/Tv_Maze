@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze/bloc/episode/episode_bloc.dart';
 import 'package:tv_maze/bloc/season/season_bloc.dart';
+import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
 import 'package:tv_maze/pages/episodes/season_episodes.dart';
 import 'package:tv_maze/utils/constants.dart';
 
@@ -13,6 +14,11 @@ class EpisodePage extends StatefulWidget {
   @override
   State<EpisodePage> createState() => _EpisodePageState();
 }
+
+void backButtonAction(BuildContext context) {
+    context.read<EpisodeBloc>().add(ClearEpisodesEvent());
+            Navigator.pop(context);
+  }
 
 class _EpisodePageState extends State<EpisodePage> {
   @override
@@ -49,16 +55,7 @@ class _EpisodePageState extends State<EpisodePage> {
           return const Text(Constants.blocErrorText + 'Episodes!');
         },
       ),
-      floatingActionButton: FloatingActionButton(
-          mini: true,
-          child: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            context.read<EpisodeBloc>().add(ClearEpisodesEvent());
-            Navigator.pop(context);
-          }),
+      floatingActionButton: const BackFloatingActionButton(action: backButtonAction),
     );
   }
 }

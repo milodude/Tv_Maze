@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
+import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
 import 'package:tv_maze/generic_widgets/expanded_show_grid_view.dart';
 import 'package:tv_maze/utils/constants.dart';
 
@@ -17,6 +18,11 @@ class _SearchShowPageState extends State<SearchShowPage> {
 
   _onChanged(String text) {
     context.read<ShowBloc>().add(LoadShowSearchDataEvent(query: text));
+  }
+
+void backButtonAction(BuildContext context) {
+    context.read<ShowBloc>().add(LoadShowDataEvent());
+          Navigator.pop(context);
   }
 
   @override
@@ -69,14 +75,7 @@ class _SearchShowPageState extends State<SearchShowPage> {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        mini: true,
-        child: const Icon(Icons.arrow_back),
-        onPressed: () {
-          context.read<ShowBloc>().add(LoadShowDataEvent());
-          Navigator.pop(context);
-        },
-      ),
+      floatingActionButton: BackFloatingActionButton(action: backButtonAction),
     );
   }
 }
