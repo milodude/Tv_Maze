@@ -16,7 +16,8 @@ void main() {
         'summary': "<p>When the residents of <b>Chester's Mill</b> find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.</p>",
     };
   });
-  testWidgets('episode mapper: should map properties properly', (WidgetTester tester) async {
+  testWidgets('episode mapper: should map properties properly', 
+  (WidgetTester tester) async {
     Episode mappedEpisode = EpisodeMapper.map(episode);
     expect(mappedEpisode, isA<Episode>());
   });

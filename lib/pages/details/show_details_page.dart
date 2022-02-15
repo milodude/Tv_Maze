@@ -29,7 +29,10 @@ class ShowDetailsPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: BlocBuilder<ShowBloc, ShowState>(builder: (BuildContext context, ShowState state) {
+          child: BlocBuilder<ShowBloc, ShowState>(builder: (
+            BuildContext context,
+            ShowState state,
+          ) {
             if (state is ShowInitialState) {
               context.read<ShowBloc>().add(LoadShowDataEvent());
               context.read<SeasonBloc>().add(LoadSeasonDataEvent(showId));

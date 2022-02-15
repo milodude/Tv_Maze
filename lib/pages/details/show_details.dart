@@ -85,17 +85,20 @@ class ShowDetails extends StatelessWidget {
                   ),
                   SizedBox(
                     height: size.height * 0.27,
-                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>[
-                      Text(
-                        show.formatSummary(),
-                        // softWrap: true,
-                        textAlign: TextAlign.justify,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontStyle: FontStyle.normal),
-                      )
-                    ]),
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      children: <Widget>[
+                        Text(
+                          show.formatSummary(),
+                          // softWrap: true,
+                          textAlign: TextAlign.justify,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontStyle: FontStyle.normal),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -150,13 +153,16 @@ class ShowDetails extends StatelessWidget {
     bool hasTime = show.schedule[Constants.showScheduleTime] != null;
     if (hasDays && hasTime) {
       return Text(
-          '${show.schedule[Constants.showScheduleDays].join(',')} at ${show.schedule[Constants.showScheduleTime]}');
+          _getLongerStringForTimeAndDays);
     } else if (hasDays) {
       return Text(show.schedule[Constants.showScheduleDays].join(','));
     }
 
     return Text('At ${show.schedule[Constants.showScheduleTime]}');
   }
+
+  // ignore: lines_longer_than_80_chars
+  String get _getLongerStringForTimeAndDays => '${show.schedule[Constants.showScheduleDays].join(',')} at ${show.schedule[Constants.showScheduleTime]}';
 
   @override
   Widget build(BuildContext context) {

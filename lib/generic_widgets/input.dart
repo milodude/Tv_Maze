@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 ///Widget that lets you create a TextFormField.
 class Input extends StatelessWidget {
-  ///Constructor which takes a TextEditingController, a TextInputType, a string to show a hint, a string as a label  and an icon 
+  ///Constructor which takes a TextEditingController, a TextInputType, a string
+  /// to show a hint, a string as a label  and an icon 
   const Input(this.controller, this.inputType, this.hint, this.label, this.icon,
       {Key? key})
       : super(key: key);

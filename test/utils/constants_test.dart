@@ -9,32 +9,32 @@ void main() {
   });
 
   testWidgets(
-      'Constants: bloc error when loading message should display "Error while loading " ',
+      'Constants: bloc error should display "Error while loading " ',
       (WidgetTester tester) async {
     expect(Constants.blocErrorWhileLoadingText, 'Error while loading ');
   });
 
     testWidgets(
-      'Constants: grid_view_card_Key message should display "grid_view_card_Key" ',
+      'Constants: grid_view_card_Key message should be "grid_view_card_Key" ',
       (WidgetTester tester) async {
     expect(Constants.gridViewCardKey, 'grid_view_card_Key');
   });
 
    testWidgets(
-      'Constants: Expanded_show_grid_view_key message should display "Expanded_show_grid_view_key" ',
+      'Constants: Expanded_show_grid_.. be "Expanded_show_grid_view_key" ',
       (WidgetTester tester) async {
     expect(Constants.gridViewExpandedKey, 'Expanded_show_grid_view_key');
   });
 
   
    testWidgets(
-      'Constants: grid_view_tile_Key message should display "grid_view_tile_Key" ',
+      'Constants: grid_view_tile.. should display "grid_view_tile_Key" ',
       (WidgetTester tester) async {
     expect(Constants.gridViewTileKey, 'grid_view_tile_Key');
   });
 
   testWidgets(
-      'Constants: grid_view_inkwell_Key message should display "grid_view_inkwell_Key" ',
+      'Constants: grid_view_inkwell_Key message to be "grid_view_inkwell_Key" ',
       (WidgetTester tester) async {
     expect(Constants.gridViewInkwellKey, 'grid_view_inkwell_Key');
   });
@@ -52,7 +52,7 @@ void main() {
   });
 
   testWidgets(
-      'Constants: when image is not available message should contain path to assets folder ',
+      'Constants: when image is not available must have path to assets folder ',
       (WidgetTester tester) async {
     expect(Constants.imageUnavailablePath, 'assets/images/unavailable-image.jpg');
   });
@@ -64,7 +64,7 @@ void main() {
   });
 
    testWidgets(
-      'Constants: show status field is to be determined value should be "To Be Determined"',
+      'Constants: show status field can have be "To Be Determined"',
       (WidgetTester tester) async {
     expect(Constants.showStatusToBeDetermined, 'To Be Determined');
   });

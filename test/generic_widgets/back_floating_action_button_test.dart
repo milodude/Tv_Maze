@@ -10,7 +10,10 @@ void main() {
     );
   }
 
-  testWidgets('back floating action button should execute an action when pressed', (WidgetTester tester) async {
+  testWidgets(
+      'back floating action button should execute an action when pressed', (
+    WidgetTester tester,
+  ) async {
     String value = 'not modified';
 
     void setSelected(BuildContext context) {

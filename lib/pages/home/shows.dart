@@ -22,7 +22,10 @@ class _ShowsState extends State<Shows> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          BlocBuilder<ShowBloc, ShowState>(builder: (BuildContext context, ShowState state) {
+          BlocBuilder<ShowBloc, ShowState>(builder: (
+            BuildContext context,
+            ShowState state,
+          ) {
             if (state is ShowInitialState) {
               context.read<ShowBloc>().add(LoadShowDataEvent());
               return Column(

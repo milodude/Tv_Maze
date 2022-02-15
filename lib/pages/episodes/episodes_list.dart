@@ -33,8 +33,8 @@ class EpisodesList extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: ListTile(
-              title: Text(
-                  '#${episodes!.elementAt(i).number == null ? '' : episodes!.elementAt(i).number?.toString()}. ${episodes!.elementAt(i).name}'),
+            // ignore: lines_longer_than_80_chars
+              title: Text('#${episodes!.elementAt(i).number == null ? '' : episodes!.elementAt(i).number?.toString()}. ${episodes!.elementAt(i).name}'),
               subtitle: Text(episodes!.elementAt(i).formatSummary()),
               leading: episodes!.elementAt(i).image != null
                   ? CircleAvatar(

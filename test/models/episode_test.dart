@@ -10,14 +10,14 @@ void main() {
       image: <String, dynamic>{'medium':'a'});
 
   testWidgets(
-      'episode mapper formatSummary method: should format summary property and take all <b> tags out',
+      'formatSummary method: should format it and take all <b> tags out',
       (WidgetTester tester) async {
     int indexNotFound = episode.formatSummary().indexOf('<b>');
     expect(indexNotFound, -1);
   });
 
   testWidgets(
-      'episode mapper formatSummary method: should format summary property and take all <p> tags out',
+      'formatSummary method: should format it and take all <p> tags out',
       (WidgetTester tester) async {
     int indexNotFound = episode.formatSummary().indexOf('<p>');
     expect(indexNotFound, -1);

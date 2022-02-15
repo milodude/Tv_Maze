@@ -4,12 +4,14 @@ import 'package:tv_maze/utils/constants.dart';
 
 ///Floating action button that represents going back in the application
 class BackFloatingActionButton extends StatelessWidget {
-  ///Constructor. Requires a function as a paremter in order to execute when pressed.
+  ///Constructor. Requires a function as a paremter in order to execute
+  /// when pressed.
   const BackFloatingActionButton({
     Key? key,
     required this.action,
   }) : super(key: key);
-  ///Parameter. Should be the action you want to execute when the button is pressed.
+  ///Parameter. Should be the action you want to execute when the button is
+  /// pressed.
   final Function action;
   @override
   Widget build(BuildContext context) {

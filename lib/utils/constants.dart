@@ -9,13 +9,14 @@ class Constants{
   ///Gridview Key
   static const String gridViewInkwellKey = 'grid_view_inkwell_Key'; 
   ///Floating action button Key
-  static const String backFloatingActionButtonKey = 'back_floating_action_button_key';
+  static const String backFloatingActionButtonKey = 'back_action_button_key';
   
   //Bloc
   ///Bloc error message
   static const String blocErrorText = 'Something went wrong!'; 
   ///Bloc error while loading message
-  static const String blocErrorWhileLoadingText = 'Error while loading '; // you may add the bloc name at the end to be more specific
+  static const String blocErrorWhileLoadingText = 'Error while loading '; 
+  // you may add the bloc name at the end to be more specific
 
   //route names
   ///Route name for landing page
@@ -47,7 +48,9 @@ class Constants{
 
   //details
   ///No results Title
+  // ignore: lines_longer_than_80_chars
   static const String showSearchNoReultsTitle = 'Aw! No shows found for the input.';
    ///No results SubTititle
+   // ignore: lines_longer_than_80_chars
   static const String showSearchNoReultsSubtitle = 'Please try with another show';
 }

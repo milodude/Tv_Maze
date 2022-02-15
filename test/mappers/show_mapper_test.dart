@@ -32,12 +32,14 @@ void main() {
             'genres': <String>['Science-Fiction'],
             };
   });
-  testWidgets('show mapper: should map properties properly', (WidgetTester tester) async {
+  testWidgets('show mapper: should map properties properly', 
+  (WidgetTester tester) async {
     Show mappedShow = ShowMapper.map(show);
     expect(mappedShow, isA<Show>());
   });
 
-  testWidgets('show mapper: should map properties despite string fields are null', (WidgetTester tester) async {
+  testWidgets('show mapper:should map properties despite string fields be null',
+  (WidgetTester tester) async {
     Show mappedShow = ShowMapper.map(showStringsNull);
     expect(mappedShow, isA<Show>());
   });

@@ -27,7 +27,8 @@ class ShowService {
 
     return fetchedShowList;
   }
-///Method that allows you to search for a List of show. A string parameter is required to perform the search.
+///Method that allows you to search for a List of show. A string parameter is
+/// required to perform the search.
   Future<List<Show>?> searchShows(String query) async {
     Uri uri = Uri(
       scheme: 'https',

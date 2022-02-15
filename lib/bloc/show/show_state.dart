@@ -1,6 +1,7 @@
 part of 'show_bloc.dart';
 
-///Abstract class 'ShowState' which lets create states for a show. Extend from this class to create a State.
+///Abstract class 'ShowState' which lets create states for a show. Extend from
+/// this class to create a State.
 @immutable
 abstract class ShowState {}
 

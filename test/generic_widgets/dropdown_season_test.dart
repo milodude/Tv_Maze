@@ -34,7 +34,7 @@ void main() {
   });
 
   testWidgets(
-      'Given a DropDownSeason When loading it and clicking an option should show set the value properly',
+      'Given a DropDownSeason When clicking an option should set the value ',
       (WidgetTester tester) async {
     Season value = Season(id: 2, number: 7);
     void _setSelected(Season selectedSeason) {
@@ -56,7 +56,6 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
 
-    //Hago click en item del combo. Si sacamos el  last del findByKey deja de funcionar. Encuentra muchos elementos. No se a que se debe.
     await tester.tap(find.byKey(const Key('2_Key')).last);
     await tester.pump();
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
@@ -65,7 +64,7 @@ void main() {
   });
 
   testWidgets(
-      'Given a DropDownSeason When loading it with empty list of seasons should disable the dropdown',
+      'Given a DropDownSeason When has empty list of seasons should disable it',
       (WidgetTester tester) async {
     void _setSelected(Season selectedSeason) {}
     // ARRANGE
