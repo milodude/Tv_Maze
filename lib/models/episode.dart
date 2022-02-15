@@ -12,7 +12,7 @@ class Episode {
   String name;
 
   ///Episode number
-  int number;
+  int? number;
 
   ///Season of the episode
   int season;

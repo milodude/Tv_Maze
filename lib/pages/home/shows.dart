@@ -21,20 +21,20 @@ class _ShowsState extends State<Shows> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          BlocBuilder<ShowBloc, ShowState>(builder: (context, state) {
+        children: <Widget>[
+          BlocBuilder<ShowBloc, ShowState>(builder: (BuildContext context, ShowState state) {
             if (state is ShowInitialState) {
               context.read<ShowBloc>().add(LoadShowDataEvent());
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: const <Widget>[
                   CircularProgressIndicator(),
                 ],
               );
             } else if (state is ShowLoadingState) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: const <Widget>[
                   CircularProgressIndicator(),
                 ],
               );

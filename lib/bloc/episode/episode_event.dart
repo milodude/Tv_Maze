@@ -5,7 +5,7 @@ abstract class EpisodeEvent extends Equatable {
   const EpisodeEvent();
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }
 
 ///Episode Event: Loads episodes for the corresponing season Id
@@ -16,11 +16,11 @@ class LoadEpisodeDataEvent extends EpisodeEvent {
   final int seasonId;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }
 
 ///Episode event that clears all  of the previous results.
 class ClearEpisodesEvent extends EpisodeEvent {
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }

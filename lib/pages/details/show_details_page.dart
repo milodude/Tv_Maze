@@ -12,7 +12,7 @@ class ShowDetailsPage extends StatelessWidget {
   const ShowDetailsPage({Key? key, required this.showId}) : super(key: key);
 
   ///Route name for this page
-  static const routeName = Constants.showDetailsPageRouteName;
+  static const String routeName = Constants.showDetailsPageRouteName;
 
   ///
   final int showId;
@@ -29,20 +29,20 @@ class ShowDetailsPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: BlocBuilder<ShowBloc, ShowState>(builder: (context, state) {
+          child: BlocBuilder<ShowBloc, ShowState>(builder: (BuildContext context, ShowState state) {
             if (state is ShowInitialState) {
               context.read<ShowBloc>().add(LoadShowDataEvent());
               context.read<SeasonBloc>().add(LoadSeasonDataEvent(showId));
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: const <Widget>[
                   CircularProgressIndicator(),
                 ],
               );
             } else if (state is ShowLoadingState) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: const <Widget>[
                   CircularProgressIndicator(),
                 ],
               );

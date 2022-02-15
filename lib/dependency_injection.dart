@@ -8,7 +8,7 @@ final GetIt di = GetIt.instance;
 
 ///Method that initializes the dependency inyection
 Future<void> initializeDependencyInjection() async {
-  var client = Client();
+  Client client = Client();
   di.registerSingleton<Client>(client);
 
   di.registerSingleton<ShowService>(ShowService(client));

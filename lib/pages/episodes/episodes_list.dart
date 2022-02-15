@@ -10,11 +10,11 @@ class EpisodesList extends StatelessWidget {
   EpisodesList({Key? key, required this.episodes}) : super(key: key);
   ///Parameter list of episodes. 
   final List<Episode>? episodes;
-  final _random = Random();
+  final Random _random = Random();
 
   @override
   Widget build(BuildContext context) {
-    final colors = <Color>[
+    final List<Color> colors = <Color>[
       Colors.black,
       Colors.blueAccent,
       Colors.purpleAccent,
@@ -29,12 +29,12 @@ class EpisodesList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        for (var i = 0; i < episodes!.length; i++)
+        for (int i = 0; i < episodes!.length; i++)
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: ListTile(
               title: Text(
-                  '#${episodes!.elementAt(i).number.toString()}. ${episodes!.elementAt(i).name}'),
+                  '#${episodes!.elementAt(i).number == null ? '' : episodes!.elementAt(i).number?.toString()}. ${episodes!.elementAt(i).name}'),
               subtitle: Text(episodes!.elementAt(i).formatSummary()),
               leading: episodes!.elementAt(i).image != null
                   ? CircleAvatar(

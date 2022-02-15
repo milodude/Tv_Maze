@@ -6,7 +6,7 @@ class AppSettings {
   }
   ///Method that allos you to get a header for a request
   static Map<String, String> getHeader() {
-    return {
+    return <String, String>{
       'Content-type': 'application/json',
       'Accept': 'application/json',
       'Access-Control-Allow-Origin': '*'

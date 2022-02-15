@@ -10,8 +10,8 @@ void main() {
     );
   }
 
-  testWidgets('back floating action button should execute an action when pressed', (tester) async {
-    var value = 'not modified';
+  testWidgets('back floating action button should execute an action when pressed', (WidgetTester tester) async {
+    String value = 'not modified';
 
     void setSelected(BuildContext context) {
       value = 'Modified!!';
@@ -22,7 +22,7 @@ void main() {
         child: BackFloatingActionButton(action: setSelected)));
 
     //ACT
-    var but = find.byKey(const Key(Constants.backFloatingActionButtonKey));
+    Finder but = find.byKey(const Key(Constants.backFloatingActionButtonKey));
     await tester.tap(but);
     await tester.pump();
 

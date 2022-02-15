@@ -30,7 +30,7 @@ class _DropdownSeasonsState extends State<DropdownSeasons> {
 
   List<DropdownMenuItem<Season>>? _transformListToDropDownItems() {
     seasonList = widget.seasonList.map((Season season) {
-      return DropdownMenuItem(
+      return DropdownMenuItem<Season>(
         value: season,
         child: Text(
           season.number.toString(),
@@ -44,7 +44,7 @@ class _DropdownSeasonsState extends State<DropdownSeasons> {
         dropdownValue = dropdownValue == null
             ? widget.seasonList.first
             : widget.seasonList
-                .firstWhere((element) => element.id == dropdownValue!.id);
+                .firstWhere((Season element) => element.id == dropdownValue!.id);
       });
     }
 

@@ -9,7 +9,7 @@ class SeasonService {
 ///Method that get all season by show id
   Future<List<Season>?> getSeasons(int showId) async {
     Uri uri = Uri.https(AppSettings.getConnectionString(), '/shows/$showId/seasons');
-    var response = await http.get(uri, headers: AppSettings.getHeader());
+    http.Response response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {
       return null;
     }
@@ -17,8 +17,8 @@ class SeasonService {
     List<dynamic> seasonResponseList = json.decode(response.body);
     List<Season> fetchedSeasonList = <Season>[];
 
-    for (var season in seasonResponseList) {
-      var dto = SeasonMapper.map(season);
+    for (dynamic season in seasonResponseList) {
+      Season dto = SeasonMapper.map(season);
       fetchedSeasonList.add(dto);
     }
 

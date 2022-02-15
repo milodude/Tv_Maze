@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
   ///Title that will hold the Home Page
   final String title;
   ///Route name of the home page
-  static const routeName = Constants.homePageRouteName;
+  static const String routeName = Constants.homePageRouteName;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -23,17 +23,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          actions: const [
+          actions: const <Widget>[
             ActionSearch(),
           ],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Row(
-                children: const [
+                children: const <Widget>[
                   Text(
                     'Shows',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

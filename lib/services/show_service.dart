@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:http/http.dart' show Client;
+import 'package:http/http.dart' show Client, Response;
 import 'package:tv_maze/mappers/show_mapper.dart';
 import 'package:tv_maze/models/show.dart';
 import 'package:tv_maze/utils/app_settings.dart';
@@ -13,15 +13,15 @@ class ShowService {
 ///Method that gets you all the available shows
   Future<List<Show>?> getShows() async {
     Uri uri = Uri.https(AppSettings.getConnectionString(), '/shows');
-    var response = await http.get(uri, headers: AppSettings.getHeader());
+    Response response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {
       return null;
     }
 
     List<dynamic> showsResponseList = json.decode(response.body);
     List<Show> fetchedShowList = <Show>[];
-    for (var show in showsResponseList) {
-      var dto = ShowMapper.map(show);
+    for (dynamic show in showsResponseList) {
+      Show dto = ShowMapper.map(show);
       fetchedShowList.add(dto);
     }
 
@@ -29,14 +29,15 @@ class ShowService {
   }
 ///Method that allows you to search for a List of show. A string parameter is required to perform the search.
   Future<List<Show>?> searchShows(String query) async {
-    var uri = Uri(
+    Uri uri = Uri(
       scheme: 'https',
       host: AppSettings.getConnectionString(),
       path: '/search/shows',
+      // ignore: always_specify_types
       queryParameters: {'q': query},
     );
 
-    var response = await http.get(uri, headers: AppSettings.getHeader());
+    Response response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {
       return null;
     }
@@ -44,8 +45,8 @@ class ShowService {
     List<dynamic> showsResponseList = json.decode(response.body);
     List<Show> fetchedShowList = <Show>[];
 
-    for (var show in showsResponseList) {
-      var dto = ShowMapper.map(show['show']);
+    for (dynamic show in showsResponseList) {
+      Show dto = ShowMapper.map(show['show']);
       fetchedShowList.add(dto);
     }
 
@@ -55,7 +56,7 @@ class ShowService {
 ///Method that allows you to search for an specific show data
   Future<Show?> searchShow(int id) async {
     Uri uri = Uri.https(AppSettings.getConnectionString(), '/shows/$id');
-    var response = await http.get(uri, headers: AppSettings.getHeader());
+    Response response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {
       return null;
     }

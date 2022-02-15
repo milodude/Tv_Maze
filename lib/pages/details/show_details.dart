@@ -14,9 +14,9 @@ class ShowDetails extends StatelessWidget {
   final Show show;
 
   Widget _getBody(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Stack(
-      children: [
+      children: <Widget>[
         Container(
           width: size.width,
           height: size.height * 0.6,
@@ -45,9 +45,9 @@ class ShowDetails extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
-                children: [
+                children: <Widget>[
                   Row(
-                    children: [
+                    children: <Widget>[
                       Text(
                         show.name,
                         style: const TextStyle(
@@ -62,7 +62,7 @@ class ShowDetails extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: <Widget>[
                       _getGenres(),
                       _getScheduled(),
                     ],
@@ -71,7 +71,7 @@ class ShowDetails extends StatelessWidget {
                     height: 10,
                   ),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Button(
                           texto: 'Seasons & Episodes',
                           color: Colors.purpleAccent,
@@ -85,7 +85,7 @@ class ShowDetails extends StatelessWidget {
                   ),
                   SizedBox(
                     height: size.height * 0.27,
-                    child: ListView(scrollDirection: Axis.vertical, children: [
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>[
                       Text(
                         show.formatSummary(),
                         // softWrap: true,
@@ -121,7 +121,7 @@ class ShowDetails extends StatelessWidget {
     if (show.genres == null) {
       genres = 'Not available';
     } else {
-      var aux = List<String>.from(show.genres);
+      List<String> aux = List<String>.from(show.genres);
       genres = aux.join(', ');
     }
 
@@ -146,8 +146,8 @@ class ShowDetails extends StatelessWidget {
     if (show.status == Constants.showStatusToBeDetermined) {
       return const Text('Schedule to be determined');
     }
-    var hasDays = show.schedule[Constants.showScheduleDays] != null;
-    var hasTime = show.schedule[Constants.showScheduleTime] != null;
+    bool hasDays = show.schedule[Constants.showScheduleDays] != null;
+    bool hasTime = show.schedule[Constants.showScheduleTime] != null;
     if (hasDays && hasTime) {
       return Text(
           '${show.schedule[Constants.showScheduleDays].join(',')} at ${show.schedule[Constants.showScheduleTime]}');

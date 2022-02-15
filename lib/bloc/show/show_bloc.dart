@@ -11,7 +11,7 @@ part 'show_state.dart';
 class ShowBloc extends Bloc<ShowEvent, ShowState> {
   ///Constructor.Parameter showService is required.
   ShowBloc(this.showService) : super(ShowInitialState()) {
-    on<ShowEvent>((event, emit) async {
+    on<ShowEvent>((ShowEvent event, Emitter<ShowState> emit) async {
       if (event is LoadShowDataEvent) {
         emit(ShowLoadingState());
         List<Show>? showList = await showService.getShows();

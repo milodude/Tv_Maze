@@ -10,7 +10,7 @@ class EpisodeService {
   Future<List<Episode>?> getEpisodes(int seasonId) async {
     Uri uri = Uri.https(
         AppSettings.getConnectionString(), '/seasons/$seasonId/episodes');
-    var response = await http.get(uri, headers: AppSettings.getHeader());
+    http.Response response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {
       return null;
     }
@@ -18,8 +18,8 @@ class EpisodeService {
     List<dynamic> episodeResponseList = json.decode(response.body);
     List<Episode> fetchedEpisodeList = <Episode>[];
 
-    for (var episode in episodeResponseList) {
-      var dto = EpisodeMapper.map(episode);
+    for (dynamic episode in episodeResponseList) {
+      Episode dto = EpisodeMapper.map(episode);
       fetchedEpisodeList.add(dto);
     }
 

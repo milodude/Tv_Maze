@@ -7,50 +7,50 @@ import 'package:tv_maze/utils/constants.dart';
 
 import 'expanded_show_grid_view_test.mocks.dart';
 
-@GenerateMocks([],
-  customMocks: [
+@GenerateMocks(<Type>[],
+  customMocks: <MockSpec<dynamic>>[
     MockSpec<NavigatorObserver>(
       returnNullOnMissingStub: true,
     )
   ],)
 
 void main() {
-  var mockNavigatorObserver = MockNavigatorObserver();
+  MockNavigatorObserver mockNavigatorObserver = MockNavigatorObserver();
 
    Widget widgetSetupToBeTested({required Widget child}) {
     return MaterialApp(
-      home: Column( children: [child]),
-      navigatorObservers: [mockNavigatorObserver],
+      home: Column( children: <Widget>[child]),
+      navigatorObservers: <NavigatorObserver>[mockNavigatorObserver],
     );
   }
   
-  testWidgets('expanded show grid view should render properly', (tester) async {
-    var showList = <Show>[Show(id: 1, name: 'True Detective', image:null, summary: 'A summArY', schedule: 'schedule', status: 'status', genres: ['test'])];
+  testWidgets('expanded show grid view should render properly', (WidgetTester tester) async {
+    List<Show> showList = <Show>[Show(id: 1, name: 'True Detective', image:null, summary: 'A summArY', schedule: 'schedule', status: 'status', genres: <dynamic>['test'])];
 
       await tester.pumpWidget(
         widgetSetupToBeTested(child: ExpandedShowsGridView(showList: showList,)));
     await tester.pump();
 
-    final gridView = find.byKey(const Key(Constants.gridViewExpandedKey));
+    final Finder gridView = find.byKey(const Key(Constants.gridViewExpandedKey));
 
     expect(gridView, findsOneWidget);
   });
 
-   testWidgets('expanded show grid view should show footer with an opacity of 0.6', (tester) async {
-    var showList = <Show>[Show(id: 1, name: 'True Detective', image:null, summary: 'A summArY', schedule: 'schedule', status: 'status', genres: ['test'])];
+   testWidgets('expanded show grid view should show footer with an opacity of 0.6', (WidgetTester tester) async {
+    List<Show> showList = <Show>[Show(id: 1, name: 'True Detective', image:null, summary: 'A summArY', schedule: 'schedule', status: 'status', genres: <dynamic>['test'])];
 
       await tester.pumpWidget(
         widgetSetupToBeTested(child: ExpandedShowsGridView(showList: showList,)));
     await tester.pump();
 
-    final card = find.byKey(const Key(Constants.gridViewCardKey)).evaluate().single.widget as Card;
+    final Card card = find.byKey(const Key(Constants.gridViewCardKey)).evaluate().single.widget as Card;
 
     expect(card.key, equals(const Key(Constants.gridViewCardKey)));
 
-    final cardTile = find.byKey(const Key(Constants.gridViewTileKey)).evaluate().single.widget as GridTile;
+    final GridTile cardTile = find.byKey(const Key(Constants.gridViewTileKey)).evaluate().single.widget as GridTile;
      await tester.pump(const Duration(seconds: 1));
 
-     var tileOpacity = cardTile.footer as Opacity;
+     Opacity tileOpacity = cardTile.footer as Opacity;
      expect(tileOpacity.opacity, equals(0.6));
   });
 }

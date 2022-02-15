@@ -11,9 +11,9 @@ part 'season_state.dart';
 class SeasonBloc extends Bloc<SeasonEvent, SeasonState> {
   ///Constructor which takes a Season Service as a parameter
   SeasonBloc(this.seasonService) : super(SeasonInitialState()) {
-    on<SeasonEvent>((event, emit) async {
+    on<SeasonEvent>((SeasonEvent event, Emitter<SeasonState> emit) async {
       if (event is ClearSeasonEvent) {
-        emit(const SeasonLoadedState(seasonList: []));
+        emit(const SeasonLoadedState(seasonList: <Season>[]));
       }
 
       if (event is LoadSeasonDataEvent) {

@@ -6,7 +6,7 @@ abstract class EpisodeState extends Equatable {
   const EpisodeState();
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }
 
 ///Episode Initial State 

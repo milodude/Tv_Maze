@@ -10,13 +10,13 @@ class SearchShowPage extends StatefulWidget {
   ///Constructor
   const SearchShowPage({Key? key}) : super(key: key);
   ///Route name for this page
-  static const routeName = Constants.searchShowPageRouteName;
+  static const String routeName = Constants.searchShowPageRouteName;
   @override
   _SearchShowPageState createState() => _SearchShowPageState();
 }
 
 class _SearchShowPageState extends State<SearchShowPage> {
-  final inputController = TextEditingController();
+  final TextEditingController inputController = TextEditingController();
 
   _onChanged(String text) {
     context.read<ShowBloc>().add(LoadShowSearchDataEvent(query: text));
@@ -37,7 +37,7 @@ class _SearchShowPageState extends State<SearchShowPage> {
         automaticallyImplyLeading: false,
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           const SizedBox(
             height: 5,
           ),
@@ -53,7 +53,7 @@ class _SearchShowPageState extends State<SearchShowPage> {
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
-            onChanged: (text) {
+            onChanged: (String text) {
               _onChanged(text);
             },
           ),
@@ -61,7 +61,7 @@ class _SearchShowPageState extends State<SearchShowPage> {
             height: 5,
           ),
           BlocBuilder<ShowBloc, ShowState>(
-            builder: (context, state) {
+            builder: (BuildContext context, ShowState state) {
               if (state is ShowInitialState) {
                 return const CircularProgressIndicator();
               } else if (state is ShowLoadingState) {

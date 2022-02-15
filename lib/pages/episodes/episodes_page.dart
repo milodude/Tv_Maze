@@ -13,7 +13,7 @@ class EpisodePage extends StatefulWidget {
   ///Parameter show id
   final int showId;
   ///Route name for this page
-  static const routeName = Constants.showEpisodesPageRouteName;
+  static const String routeName = Constants.showEpisodesPageRouteName;
 
   @override
   State<EpisodePage> createState() => _EpisodePageState();
@@ -34,19 +34,19 @@ class _EpisodePageState extends State<EpisodePage> {
         automaticallyImplyLeading: false,
       ),
       body: BlocBuilder<SeasonBloc, SeasonState>(
-        builder: (context, state) {
+        builder: (BuildContext context, SeasonState state) {
           if (state is SeasonInitialState) {
             context.read<SeasonBloc>().add(LoadSeasonDataEvent(widget.showId));
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: const <Widget>[
                 CircularProgressIndicator(),
               ],
             );
           } else if (state is SeasonLoadingState) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: const <Widget>[
                 CircularProgressIndicator(),
               ],
             );

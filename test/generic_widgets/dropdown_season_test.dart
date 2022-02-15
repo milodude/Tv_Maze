@@ -14,20 +14,20 @@ void main() {
   }
 
   testWidgets('Given a DropDownSeason When loading it should show it properly',
-      (tester) async {
+      (WidgetTester tester) async {
     void _setSelected(Season newValue) {}
-    var season1 = Season(id: 1, number: 1);
-    var season2 = Season(id: 70, number: 2);
+    Season season1 = Season(id: 1, number: 1);
+    Season season2 = Season(id: 70, number: 2);
 
     // ARRANGE
-    var seasonList = <Season>[season1, season2];
+    List<Season> seasonList = <Season>[season1, season2];
 
     await tester.pumpWidget(widgetSetupToBeTested(
         child: DropdownSeasons(_setSelected, seasonList, seasonList.first)));
     await tester.pump();
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
     //ACT
-    final dropDown = find.byKey(const Key('DropDown'));
+    final Finder dropDown = find.byKey(const Key('DropDown'));
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
     //ASSERT
     expect(dropDown, findsWidgets);
@@ -35,17 +35,17 @@ void main() {
 
   testWidgets(
       'Given a DropDownSeason When loading it and clicking an option should show set the value properly',
-      (tester) async {
+      (WidgetTester tester) async {
     Season value = Season(id: 2, number: 7);
     void _setSelected(Season selectedSeason) {
       value = selectedSeason;
     }
 
-    var season1 = Season(id: 1, number: 1);
-    var season2 = Season(id: 70, number: 2);
+    Season season1 = Season(id: 1, number: 1);
+    Season season2 = Season(id: 70, number: 2);
 
     // ARRANGE
-    var seasonList = <Season>[season1, season2];
+    List<Season> seasonList = <Season>[season1, season2];
 
     await tester.pumpWidget(widgetSetupToBeTested(
         child: DropdownSeasons(_setSelected, seasonList, seasonList.first)));
@@ -66,10 +66,10 @@ void main() {
 
   testWidgets(
       'Given a DropDownSeason When loading it with empty list of seasons should disable the dropdown',
-      (tester) async {
+      (WidgetTester tester) async {
     void _setSelected(Season selectedSeason) {}
     // ARRANGE
-    var countryList = <Season>[];
+    List<Season> countryList = <Season>[];
 
     await tester.pumpWidget(widgetSetupToBeTested(
         child: DropdownSeasons(_setSelected, countryList, null)));

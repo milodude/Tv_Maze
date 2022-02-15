@@ -32,10 +32,10 @@ class ExpandedShowsGridView extends StatelessWidget {
                 crossAxisSpacing: 20,
               ),
               itemCount: showList.length,
-              itemBuilder: (context, index) {
+              itemBuilder: (BuildContext context, int index) {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: <Widget>[
                     Expanded(
                       child: Card(
                         key: const Key(Constants.gridViewCardKey),

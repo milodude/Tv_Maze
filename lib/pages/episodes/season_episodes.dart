@@ -37,7 +37,7 @@ class _SeasonEpisodesState extends State<SeasonEpisodes> {
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             const Text(
               'Season',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -53,21 +53,21 @@ class _SeasonEpisodesState extends State<SeasonEpisodes> {
           color: Colors.purple,
         ),
         BlocBuilder<EpisodeBloc, EpisodeState>(
-          builder: (context, state) {
+          builder: (BuildContext context, EpisodeState state) {
             if (state is EpisodeInitialState) {
               context
                   .read<EpisodeBloc>()
                   .add(LoadEpisodeDataEvent(selectedSeason.id));
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: const <Widget>[
                   CircularProgressIndicator(),
                 ],
               );
             } else if (state is EpisodeLoadingState) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: const <Widget>[
                   CircularProgressIndicator(),
                 ],
               );

@@ -7,38 +7,38 @@ void main() {
   dynamic showStringsNull;
 
   setUp(() {
-     show = {
+     show = <String, dynamic>{
             'id': 60081,
             'name': 'Justice U',
             'image': null,
             'summary': '<p>After years of fighting alongside masked heroes, John Diggle embarks on a new mission to recruit five young meta humans to live undercover as freshmen at a prestigious university. There he will oversee their education and train them to become the heroes of tomorrow.</p>',
-            'schedule': {
+            'schedule': <String,dynamic>{
                 'time': '',
-                'days': []
+                'days': ''
             },
             'status': 'In Development',
-            'genres': ['Science-Fiction'],
+            'genres': <String>['Science-Fiction'],
             };
-      showStringsNull = {
+      showStringsNull = <String, dynamic>{
             'id': 60081,
             'name': null,
             'image': null,
             'summary': '<p>After years of fighting alongside masked heroes, John Diggle embarks on a new mission to recruit five young meta humans to live undercover as freshmen at a prestigious university. There he will oversee their education and train them to become the heroes of tomorrow.</p>',
-            'schedule': {
+            'schedule': <String,  dynamic>{
                 'time': '',
-                'days': []
+                'days': null
             },
             'status':null,
-            'genres': ['Science-Fiction'],
+            'genres': <String>['Science-Fiction'],
             };
   });
-  testWidgets('show mapper: should map properties properly', (tester) async {
-    var mappedShow = ShowMapper.map(show);
+  testWidgets('show mapper: should map properties properly', (WidgetTester tester) async {
+    Show mappedShow = ShowMapper.map(show);
     expect(mappedShow, isA<Show>());
   });
 
-  testWidgets('show mapper: should map properties despite string fields are null', (tester) async {
-    var mappedShow = ShowMapper.map(showStringsNull);
+  testWidgets('show mapper: should map properties despite string fields are null', (WidgetTester tester) async {
+    Show mappedShow = ShowMapper.map(showStringsNull);
     expect(mappedShow, isA<Show>());
   });
 }

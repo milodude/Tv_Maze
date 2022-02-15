@@ -5,7 +5,7 @@ abstract class ShowEvent extends Equatable {}
 ///Episode Event: Loads Shows available
 class LoadShowDataEvent extends ShowEvent {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => <Object>[];
 }
 
 ///Event  that happens when 
@@ -16,7 +16,7 @@ class LoadShowSearchDataEvent extends ShowEvent {
   final String query;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }
 
 ///Event that handles the show details
@@ -27,5 +27,5 @@ class LoadShowDetailsEvent extends ShowEvent {
   final int id;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }

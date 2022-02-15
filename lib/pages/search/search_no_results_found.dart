@@ -11,7 +11,7 @@ class SearchNoResultsFound extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: const <Widget>[
         SizedBox(
           height: 10,
         ),

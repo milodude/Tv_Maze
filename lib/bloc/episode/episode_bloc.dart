@@ -9,14 +9,14 @@ part 'episode_state.dart';
 class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
   ///Constructor.Parameter episodeService is required.
   EpisodeBloc(this._episodeService) : super(EpisodeInitialState()) {
-    on<EpisodeEvent>((event, emit) async {
+    on<EpisodeEvent>((EpisodeEvent event, Emitter<EpisodeState> emit) async {
       if (event is ClearEpisodesEvent) {
-        emit(const EpisodeLoadedState(episodeList: []));
+        emit(const EpisodeLoadedState(episodeList: <Episode>[]));
       }
 
       if (event is LoadEpisodeDataEvent) {
         emit(EpisodeLoadingState());
-        var episodeList = await _episodeService.getEpisodes(event.seasonId);
+        List<Episode>? episodeList = await _episodeService.getEpisodes(event.seasonId);
         emit(EpisodeLoadedState(episodeList: episodeList));
       }
     });

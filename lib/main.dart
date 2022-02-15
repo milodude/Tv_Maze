@@ -27,6 +27,7 @@ class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
+      // ignore: always_specify_types
       providers: [
         BlocProvider<ShowBloc>(create: (_) => ShowBloc(di<ShowService>())),
         BlocProvider<SeasonBloc>(
@@ -57,14 +58,15 @@ class TvMazeApp extends StatelessWidget {
         title: 'Maze Tv',
       )),
       initialRoute: HomePage.routeName,
+      // ignore: always_specify_types
       routes: {
         SearchShowPage.routeName: (_) => const SearchShowPage(),
       },
-      onGenerateRoute: (settings) {
+      onGenerateRoute: (RouteSettings settings) {
         if (settings.name == ShowDetailsPage.routeName) {
-          final args = settings.arguments as ShowArguments;
-          return MaterialPageRoute(
-            builder: (context) {
+          final ShowArguments args = settings.arguments as ShowArguments;
+          return MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) {
               return ShowDetailsPage(
                 showId: args.showId,
               );
@@ -73,9 +75,9 @@ class TvMazeApp extends StatelessWidget {
         }
 
         if (settings.name == EpisodePage.routeName) {
-          final args = settings.arguments as ShowArguments;
-          return MaterialPageRoute(
-            builder: (context) {
+          final ShowArguments args = settings.arguments as ShowArguments;
+          return MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) {
               return EpisodePage(
                 showId: args.showId,
               );
