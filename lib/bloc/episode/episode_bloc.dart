@@ -11,11 +11,11 @@ class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
 
   EpisodeBloc(this.episodeService) : super(EpisodeInitialState()) {
     on<EpisodeEvent>((event, emit) async {
-      if(event is ClearEpisodesEvent) {
+      if (event is ClearEpisodesEvent) {
         emit(const EpisodeLoadedState(episodeList: []));
       }
 
-      if(event is LoadEpisodeDataEvent) {
+      if (event is LoadEpisodeDataEvent) {
         emit(EpisodeLoadingState());
         var episodeList = await episodeService.getEpisodes(event.id);
         emit(EpisodeLoadedState(episodeList: episodeList));

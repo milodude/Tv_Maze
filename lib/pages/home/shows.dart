@@ -28,14 +28,14 @@ class _ShowsState extends State<Shows> {
               context.read<ShowBloc>().add(LoadShowDataEvent());
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children:const [
+                children: const [
                   CircularProgressIndicator(),
                 ],
               );
             } else if (state is ShowLoadingState) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children:const [
+                children: const [
                   CircularProgressIndicator(),
                 ],
               );

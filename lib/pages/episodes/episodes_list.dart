@@ -36,8 +36,12 @@ class EpisodesList extends StatelessWidget {
               leading: episodes!.elementAt(i).image != null
                   ? CircleAvatar(
                       backgroundImage: NetworkImage(
-                        episodes!.elementAt(i).image[Constants.imageSizeMedium] ??
-                            episodes!.elementAt(i).image[Constants.imageSizeOriginal],
+                        episodes!
+                                .elementAt(i)
+                                .image[Constants.imageSizeMedium] ??
+                            episodes!
+                                .elementAt(i)
+                                .image[Constants.imageSizeOriginal],
                       ),
                     )
                   : const CircleAvatar(

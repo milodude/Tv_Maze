@@ -11,15 +11,17 @@ class SeasonBloc extends Bloc<SeasonEvent, SeasonState> {
   final SeasonService seasonService;
 
   SeasonBloc(this.seasonService) : super(SeasonInitialState()) {
-    on<SeasonEvent>((event, emit) async{
-       if(event is ClearSeasonEvent) {
-        emit( const SeasonLoadedState(seasonList: []));
+    on<SeasonEvent>((event, emit) async {
+      if (event is ClearSeasonEvent) {
+        emit(const SeasonLoadedState(seasonList: []));
       }
 
-      if(event is LoadSeasonDataEvent){
+      if (event is LoadSeasonDataEvent) {
         emit(SeasonLoadingState());
         List<Season>? seasonList = await seasonService.getSeasons(event.id);
-        seasonList == null ? emit(SeasonErrorState()) : emit(SeasonLoadedState(seasonList: seasonList));
+        seasonList == null
+            ? emit(SeasonErrorState())
+            : emit(SeasonLoadedState(seasonList: seasonList));
       }
     });
   }

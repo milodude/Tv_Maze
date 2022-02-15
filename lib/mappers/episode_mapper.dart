@@ -1,7 +1,7 @@
 import 'package:tv_maze/models/episode.dart';
 
-class EpisodeMapper{
-   static Episode map(dynamic episode) {
+class EpisodeMapper {
+  static Episode map(dynamic episode) {
     try {
       return Episode(
         name: episode['name'],
@@ -11,8 +11,7 @@ class EpisodeMapper{
         season: episode['season'],
       );
     } catch (e) {
-      throw Exception(
-          "Review EpisodeMapper. Failed while mapping!");
+      throw Exception("Review EpisodeMapper. Failed while mapping!");
     }
   }
 }

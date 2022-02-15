@@ -25,4 +25,9 @@ class Constants{
   static const String showStatusToBeDetermined = 'To Be Determined';
   static const String showScheduleDays = 'days';
   static const String showScheduleTime = 'time';
+
+  //details
+  static const String showSearchNoReultsTitle = 'Aw! No shows found for the input.';
+  static const String showSearchNoReultsSubtitle = 'Please try with another show';
+
 }

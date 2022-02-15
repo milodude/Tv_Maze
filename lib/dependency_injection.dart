@@ -6,7 +6,7 @@ import 'package:http/http.dart' show Client;
 
 final GetIt di = GetIt.instance;
 
-Future<void> initializeDependencyInjection() async{
+Future<void> initializeDependencyInjection() async {
   var client = Client();
   di.registerSingleton<Client>(client);
 

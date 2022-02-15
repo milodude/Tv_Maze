@@ -16,9 +16,9 @@ class EpisodePage extends StatefulWidget {
 }
 
 void backButtonAction(BuildContext context) {
-    context.read<EpisodeBloc>().add(ClearEpisodesEvent());
-            Navigator.pop(context);
-  }
+  context.read<EpisodeBloc>().add(ClearEpisodesEvent());
+  Navigator.pop(context);
+}
 
 class _EpisodePageState extends State<EpisodePage> {
   @override
@@ -46,7 +46,9 @@ class _EpisodePageState extends State<EpisodePage> {
               ],
             );
           } else if (state is SeasonLoadedState) {
-            context.read<EpisodeBloc>().add(LoadEpisodeDataEvent(state.seasonList[0].id));
+            context
+                .read<EpisodeBloc>()
+                .add(LoadEpisodeDataEvent(state.seasonList[0].id));
             return SeasonEpisodes(seasonList: state.seasonList);
           } else if (state is SeasonErrorState) {
             return const Text(Constants.blocErrorText);
@@ -55,11 +57,8 @@ class _EpisodePageState extends State<EpisodePage> {
           return const Text(Constants.blocErrorText + 'Episodes!');
         },
       ),
-      floatingActionButton: const BackFloatingActionButton(action: backButtonAction),
+      floatingActionButton:
+          const BackFloatingActionButton(action: backButtonAction),
     );
   }
 }
-
-
-
-

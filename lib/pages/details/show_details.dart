@@ -82,17 +82,17 @@ class ShowDetails extends StatelessWidget {
                   ),
                   SizedBox(
                     height: size.height * 0.27,
-                    child: ListView(
-                      scrollDirection: Axis.vertical,
-                        children:[ Text(
-                      show.formatSummary(),
-                      // softWrap: true,
-                      textAlign: TextAlign.justify,
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontStyle: FontStyle.normal),
-                    )]),
+                    child: ListView(scrollDirection: Axis.vertical, children: [
+                      Text(
+                        show.formatSummary(),
+                        // softWrap: true,
+                        textAlign: TextAlign.justify,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontStyle: FontStyle.normal),
+                      )
+                    ]),
                   )
                 ],
               ),

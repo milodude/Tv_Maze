@@ -5,9 +5,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class EpisodeService {
-
   Future<List<Episode>?> getEpisodes(int seasonId) async {
-    Uri uri = Uri.https(AppSettings.getConnectionString(), '/seasons/$seasonId/episodes');
+    Uri uri = Uri.https(
+        AppSettings.getConnectionString(), '/seasons/$seasonId/episodes');
     var response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {
       return null;

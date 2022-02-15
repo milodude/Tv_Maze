@@ -36,8 +36,13 @@ class _SeasonEpisodesState extends State<SeasonEpisodes> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Season', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-            const SizedBox(width: 10,),
+            const Text(
+              'Season',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
             DropdownSeasons(
                 _setSelectedSeason, widget.seasonList, widget.seasonList[0]),
           ],
@@ -70,7 +75,8 @@ class _SeasonEpisodesState extends State<SeasonEpisodes> {
               return const Text(Constants.blocErrorText);
             }
 
-            return const Text(Constants.blocErrorWhileLoadingText + 'Episodes!');
+            return const Text(
+                Constants.blocErrorWhileLoadingText + 'Episodes!');
           },
         ),
       ],

@@ -6,5 +6,4 @@ class Season {
     required this.id,
     required this.number,
   });
-
 }

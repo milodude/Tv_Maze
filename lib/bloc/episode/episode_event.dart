@@ -7,8 +7,7 @@ abstract class EpisodeEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadEpisodeDataEvent extends EpisodeEvent{
- 
+class LoadEpisodeDataEvent extends EpisodeEvent {
   final int id;
 
   const LoadEpisodeDataEvent(this.id);
@@ -16,7 +15,7 @@ class LoadEpisodeDataEvent extends EpisodeEvent{
   List<Object> get props => [];
 }
 
-class ClearEpisodesEvent extends EpisodeEvent{
+class ClearEpisodesEvent extends EpisodeEvent {
   @override
   List<Object> get props => [];
 }

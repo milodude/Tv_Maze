@@ -7,7 +7,9 @@ class DropdownSeasons extends StatefulWidget {
   final List<Season> seasonList;
   final Season? selected;
 
-  const DropdownSeasons(this.setSelected, this.seasonList, this.selected, {Key? key}) : super(key: key);
+  const DropdownSeasons(this.setSelected, this.seasonList, this.selected,
+      {Key? key})
+      : super(key: key);
 
   @override
   _DropdownSeasonsState createState() => _DropdownSeasonsState();
@@ -36,8 +38,10 @@ class _DropdownSeasonsState extends State<DropdownSeasons> {
 
     if (widget.seasonList.isNotEmpty) {
       setState(() {
-        dropdownValue = dropdownValue == null? widget.seasonList.first:
-        widget.seasonList.firstWhere((element) => element.id == dropdownValue!.id);
+        dropdownValue = dropdownValue == null
+            ? widget.seasonList.first
+            : widget.seasonList
+                .firstWhere((element) => element.id == dropdownValue!.id);
       });
     }
 
@@ -48,7 +52,10 @@ class _DropdownSeasonsState extends State<DropdownSeasons> {
   Widget build(BuildContext context) {
     return DropdownButton<Season>(
         value: dropdownValue,
-        icon: const Icon(Icons.arrow_downward, color: Colors.deepPurple,),
+        icon: const Icon(
+          Icons.arrow_downward,
+          color: Colors.deepPurple,
+        ),
         iconSize: 24,
         elevation: 16,
         key: const Key("DropDown"),
@@ -58,8 +65,8 @@ class _DropdownSeasonsState extends State<DropdownSeasons> {
           color: Colors.deepPurpleAccent,
         ),
         onChanged: (Season? newValue) {
-            widget.setSelected(newValue);
-            dropdownValue = newValue;
+          widget.setSelected(newValue);
+          dropdownValue = newValue;
         },
         items: widget.seasonList.isNotEmpty
             ? _transformListToDropDownItems()

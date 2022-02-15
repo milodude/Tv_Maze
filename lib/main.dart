@@ -27,9 +27,10 @@ class AppState extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ShowBloc>(create: (_) => ShowBloc(di<ShowService>())),
-        BlocProvider<SeasonBloc>(create: (_) => SeasonBloc(di<SeasonService>())),
-        BlocProvider<EpisodeBloc>(create: (_) => EpisodeBloc(di<EpisodeService>())),
-
+        BlocProvider<SeasonBloc>(
+            create: (_) => SeasonBloc(di<SeasonService>())),
+        BlocProvider<EpisodeBloc>(
+            create: (_) => EpisodeBloc(di<EpisodeService>())),
       ],
       child: const TvMazeApp(),
     );
@@ -57,12 +58,13 @@ class TvMazeApp extends StatelessWidget {
         SearchShowPage.routeName: (_) => const SearchShowPage(),
       },
       onGenerateRoute: (settings) {
-        // If you push the PassArguments route
         if (settings.name == ShowDetailsPage.routeName) {
           final args = settings.arguments as ShowArguments;
           return MaterialPageRoute(
             builder: (context) {
-              return ShowDetailsPage(showId: args.showId,);
+              return ShowDetailsPage(
+                showId: args.showId,
+              );
             },
           );
         }
@@ -71,7 +73,9 @@ class TvMazeApp extends StatelessWidget {
           final args = settings.arguments as ShowArguments;
           return MaterialPageRoute(
             builder: (context) {
-              return EpisodePage(showId: args.showId,);
+              return EpisodePage(
+                showId: args.showId,
+              );
             },
           );
         }
