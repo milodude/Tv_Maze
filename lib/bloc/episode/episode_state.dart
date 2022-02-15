@@ -12,9 +12,9 @@ class EpisodeInitialState extends EpisodeState {}
 class EpisodeLoadingState extends EpisodeState {}
 
 class EpisodeLoadedState extends EpisodeState {
-  final List<Episode>? episodeList;
-
   const EpisodeLoadedState({required this.episodeList});
+  
+  final List<Episode>? episodeList;
 }
 
 class EpisodeErrorState extends EpisodeState {}

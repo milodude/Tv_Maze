@@ -1,5 +1,4 @@
 class ShowArguments {
-  final int showId;
-
   ShowArguments(this.showId);
+  final int showId;
 }

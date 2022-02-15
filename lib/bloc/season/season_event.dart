@@ -8,9 +8,8 @@ abstract class SeasonEvent extends Equatable {
 }
 
 class LoadSeasonDataEvent extends SeasonEvent {
-  final int id;
-
   const LoadSeasonDataEvent(this.id);
+  final int id;
 
   @override
   List<Object> get props => [];

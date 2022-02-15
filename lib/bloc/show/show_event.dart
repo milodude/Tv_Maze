@@ -9,17 +9,17 @@ class LoadShowDataEvent extends ShowEvent {
 }
 
 class LoadShowSearchDataEvent extends ShowEvent {
+  LoadShowSearchDataEvent({required this.query});
   final String query;
 
-  LoadShowSearchDataEvent({required this.query});
   @override
   List<Object> get props => [];
 }
 
 class LoadShowDetailsEvent extends ShowEvent {
+  LoadShowDetailsEvent({required this.id});
   final int id;
 
-  LoadShowDetailsEvent({required this.id});
   @override
   List<Object> get props => [];
 }

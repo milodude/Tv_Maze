@@ -27,7 +27,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
     //ACT
-    final dropDown = find.byKey(const Key("DropDown"));
+    final dropDown = find.byKey(const Key('DropDown'));
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
     //ASSERT
     expect(dropDown, findsWidgets);
@@ -52,12 +52,12 @@ void main() {
 
     //ACT
     //Hago desplegar el combo
-    await tester.tap(find.byKey(const Key("DropDown")));
+    await tester.tap(find.byKey(const Key('DropDown')));
     await tester.pump();
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
 
     //Hago click en item del combo. Si sacamos el  last del findByKey deja de funcionar. Encuentra muchos elementos. No se a que se debe.
-    await tester.tap(find.byKey(const Key("2_Key")).last);
+    await tester.tap(find.byKey(const Key('2_Key')).last);
     await tester.pump();
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
     //ASSERT
@@ -76,11 +76,11 @@ void main() {
 
     //ACT
     //Intento desplegar el combo
-    await tester.tap(find.byKey(const Key("DropDown")));
+    await tester.tap(find.byKey(const Key('DropDown')));
     await tester.pump();
     await tester.pump(const Duration(seconds: 1)); // finish the menu animation
 
     //ASSERT
-    expect(find.byKey(const Key("2_Key")), findsNothing);
+    expect(find.byKey(const Key('2_Key')), findsNothing);
   });
 }

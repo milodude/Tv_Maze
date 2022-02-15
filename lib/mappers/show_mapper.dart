@@ -14,7 +14,7 @@ class ShowMapper {
       );
     } catch (e) {
       throw Exception(
-          "Review ShowMapper. Failed while mapping! ${e.toString()}");
+          'Review ShowMapper. Failed while mapping! ${e.toString()}');
     }
   }
 }

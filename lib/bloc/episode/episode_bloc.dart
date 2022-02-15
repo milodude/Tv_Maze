@@ -7,8 +7,6 @@ part 'episode_event.dart';
 part 'episode_state.dart';
 
 class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
-  final EpisodeService episodeService;
-
   EpisodeBloc(this.episodeService) : super(EpisodeInitialState()) {
     on<EpisodeEvent>((event, emit) async {
       if (event is ClearEpisodesEvent) {
@@ -22,4 +20,6 @@ class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
       }
     });
   }
+  
+  final EpisodeService episodeService;
 }

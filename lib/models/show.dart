@@ -1,12 +1,4 @@
 class Show {
-  int id;
-  String name;
-  dynamic image;
-  String summary;
-  dynamic schedule;
-  String status;
-  dynamic genres;
-
   Show(
       {required this.id,
       required this.name,
@@ -15,6 +7,14 @@ class Show {
       required this.schedule,
       required this.status,
       required this.genres});
+
+  int id;
+  String name;
+  dynamic image;
+  String summary;
+  dynamic schedule;
+  String status;
+  dynamic genres;
 
   String formatSummary() {
     return summary

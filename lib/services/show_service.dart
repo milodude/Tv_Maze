@@ -5,9 +5,9 @@ import 'package:tv_maze/models/show.dart';
 import 'package:tv_maze/utils/app_settings.dart';
 
 class ShowService {
-  final Client http;
-
   ShowService(this.http);
+  
+  final Client http;
 
   Future<List<Show>?> getShows() async {
     Uri uri = Uri.https(AppSettings.getConnectionString(), '/shows');
@@ -50,7 +50,7 @@ class ShowService {
     return fetchedShowList;
   }
 
-   Future<Show?> searchShow(int id) async {
+  Future<Show?> searchShow(int id) async {
     Uri uri = Uri.https(AppSettings.getConnectionString(), '/shows/$id');
     var response = await http.get(uri, headers: AppSettings.getHeader());
     if (response.statusCode != 200) {

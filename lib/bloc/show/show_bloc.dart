@@ -8,7 +8,6 @@ part 'show_event.dart';
 part 'show_state.dart';
 
 class ShowBloc extends Bloc<ShowEvent, ShowState> {
-  final ShowService showService;
   ShowBloc(this.showService) : super(ShowInitialState()) {
     on<ShowEvent>((event, emit) async {
       if (event is LoadShowDataEvent) {
@@ -37,4 +36,7 @@ class ShowBloc extends Bloc<ShowEvent, ShowState> {
       }
     });
   }
+
+  final ShowService showService;
+
 }

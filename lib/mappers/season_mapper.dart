@@ -8,7 +8,7 @@ class SeasonMapper {
         id: season['id'],
       );
     } catch (e) {
-      throw Exception("Review SeasonMapper. Failed while mapping!");
+      throw Exception('Review SeasonMapper. Failed while mapping!');
     }
   }
 }

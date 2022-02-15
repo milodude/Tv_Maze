@@ -25,7 +25,7 @@ class _EpisodePageState extends State<EpisodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Season & Episodes"),
+        title: const Text('Season & Episodes'),
         automaticallyImplyLeading: false,
       ),
       body: BlocBuilder<SeasonBloc, SeasonState>(

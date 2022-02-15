@@ -1,16 +1,16 @@
 class Episode {
-  String name;
-  int number;
-  int season;
-  String summary;
-  dynamic image;
-
   Episode(
       {required this.name,
       required this.number,
       required this.season,
       required this.summary,
       required this.image});
+
+  String name;
+  int number;
+  int season;
+  String summary;
+  dynamic image;
 
   String formatSummary() {
     return summary

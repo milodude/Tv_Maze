@@ -11,7 +11,7 @@ class EpisodeMapper {
         season: episode['season'],
       );
     } catch (e) {
-      throw Exception("Review EpisodeMapper. Failed while mapping!");
+      throw Exception('Review EpisodeMapper. Failed while mapping!');
     }
   }
 }

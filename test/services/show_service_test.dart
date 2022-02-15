@@ -8,32 +8,32 @@ import 'package:tv_maze/utils/app_settings.dart';
 
 void main() {
   var returnedShow = [ {
-            "id": 60081,
-            "name": "Justice U",
-            "image": null,
-            "summary": "<p>After years of fighting alongside masked heroes, John Diggle embarks on a new mission to recruit five young meta humans to live undercover as freshmen at a prestigious university. There he will oversee their education and train them to become the heroes of tomorrow.</p>",
-            "schedule": {
-                "time": "",
-                "days": []
+            'id': 60081,
+            'name': 'Justice U',
+            'image': null,
+            'summary': '<p>After years of fighting alongside masked heroes, John Diggle embarks on a new mission to recruit five young meta humans to live undercover as freshmen at a prestigious university. There he will oversee their education and train them to become the heroes of tomorrow.</p>',
+            'schedule': {
+                'time': '',
+                'days': []
             },
-            "status": "In Development",
-            "genres": ["Science-Fiction"],
+            'status': 'In Development',
+            'genres': ['Science-Fiction'],
             }
     ];
 
     var returnedSearch = [{
-        "score": 0.6982418,
-        "show": {
-            "id": 70,
-            "name": "Justice U",
-            "image": null,
-            "summary": "<p>After years of fighting alongside masked heroes, John Diggle embarks on a new mission to recruit five young meta humans to live undercover as freshmen at a prestigious university. There he will oversee their education and train them to become the heroes of tomorrow.</p>",
-            "schedule": {
-                "time": "",
-                "days": []
+        'score': 0.6982418,
+        'show': {
+            'id': 70,
+            'name': 'Justice U',
+            'image': null,
+            'summary': '<p>After years of fighting alongside masked heroes, John Diggle embarks on a new mission to recruit five young meta humans to live undercover as freshmen at a prestigious university. There he will oversee their education and train them to become the heroes of tomorrow.</p>',
+            'schedule': {
+                'time': '',
+                'days': []
             },
-            "status": "In Development",
-            "genres": ["Science-Fiction"],
+            'status': 'In Development',
+            'genres': ['Science-Fiction'],
             }
     }];
 

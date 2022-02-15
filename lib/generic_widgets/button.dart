@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  final Color? color;
-  final String texto;
-  final Function accion;
-  final double? tamano;
-  final String keyString;
-
   const Button(
       {Key? key,
       required this.texto,
@@ -15,6 +9,12 @@ class Button extends StatelessWidget {
       this.tamano,
       this.keyString = 'widgets_propios_boton'})
       : super(key: key);
+      
+  final Color? color;
+  final String texto;
+  final Function accion;
+  final double? tamano;
+  final String keyString;
 
   @override
   Widget build(BuildContext context) {

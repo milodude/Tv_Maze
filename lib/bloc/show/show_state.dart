@@ -8,15 +8,15 @@ class ShowInitialState extends ShowState {}
 class ShowLoadingState extends ShowState {}
 
 class ShowListLoadedState extends ShowState {
+  ShowListLoadedState({required this.showList});
   final List<Show> showList;
 
-  ShowListLoadedState({required this.showList});
 }
 
 class ShowLoadedState extends ShowState {
+  ShowLoadedState({required this.show});
   final Show show;
 
-  ShowLoadedState({required this.show});
 }
 
 class ShowErrorState extends ShowState {}

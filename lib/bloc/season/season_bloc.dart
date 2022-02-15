@@ -8,8 +8,6 @@ part 'season_event.dart';
 part 'season_state.dart';
 
 class SeasonBloc extends Bloc<SeasonEvent, SeasonState> {
-  final SeasonService seasonService;
-
   SeasonBloc(this.seasonService) : super(SeasonInitialState()) {
     on<SeasonEvent>((event, emit) async {
       if (event is ClearSeasonEvent) {
@@ -25,4 +23,6 @@ class SeasonBloc extends Bloc<SeasonEvent, SeasonState> {
       }
     });
   }
+  
+  final SeasonService seasonService;
 }
