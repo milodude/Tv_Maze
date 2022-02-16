@@ -1,23 +1,29 @@
 # Tv_Maze
 Challenge made in Flutter
 
-===== Dev Instructions =====
+## ===== Dev Instructions =====
 
-1-Clone the repo
-2-In the command line run, flutter pub get.
-3-Open an emulator. Youcan use either flutter's, android studio's or your own cellphone connected to the pc
-4-In the command line run, flutter run
-5-The application will build and install in your emulator or device. Remember if you have more than one connected the user interface will ask you to choose one.
-6-Enjoy it!
+1. Clone the repo
+2. In the command line run
+     ```
+     flutter pub get.
+     ```
+3. Open an emulator. Youcan use either flutter's, android studio's or your own cellphone connected to the pc
+4. In the command line run, 
+    ```
+    flutter run
+    ```
+5. The application will build and install in your emulator or device. Remember if you have more than one connected the user interface will ask you to choose one.
+6. Enjoy it!
 
-===== User Instructions =====
+## ===== User Instructions =====
 
-1-Clone the repo
-2-Install the apk provided in the distribution folder in your cellphone.
-3-The application is under the name "Maze Tv" so you can find it in your cellphone.
-4-Enjoy!
+1. Clone the repo
+2. Install the apk provided in the distribution folder in your cellphone.
+3. The application is under the name "Maze Tv" so you can find it in your cellphone.
+4. Enjoy!
 
-===== Inside the app, main functionalities =====
+## ===== Inside the app, main functionalities =====
 
 Once the app is up and running you will get to the home page directly where it will display the list of shows.
  
