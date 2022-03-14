@@ -6,7 +6,7 @@ import 'package:tv_maze/utils/app_settings.dart';
 ///Show service class that handles the API requests
 class ShowService {
   ///constructor which takes an HTTP Client
-  ShowService(this.http);
+  ShowService({required this.http});
   ///Property
   final Client http;
 

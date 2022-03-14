@@ -59,13 +59,13 @@ void main() {
   }
 
   testWidgets('show service should return shows', (WidgetTester tester) async {
-    final ShowService apiShow = ShowService(MockClient(_mockRequest));
+    final ShowService apiShow = ShowService(http: MockClient(_mockRequest));
     final List<Show>? show = await apiShow.getShows();
     expect(show!.first.id, returnedShow.first['id']);
   });
 
   testWidgets('show service should search shows', (WidgetTester tester) async {
-    final ShowService apiShow = ShowService(MockClient(_mockRequest));
+    final ShowService apiShow = ShowService(http: MockClient(_mockRequest));
     final List<Show>? show = await apiShow.searchShows('aQuerY');
     expect(show!.first.id, 70);
   });

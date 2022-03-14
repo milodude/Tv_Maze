@@ -11,7 +11,7 @@ Future<void> initializeDependencyInjection() async {
   Client client = Client();
   di.registerSingleton<Client>(client);
 
-  di.registerSingleton<ShowService>(ShowService(client));
-  di.registerSingleton<SeasonService>(SeasonService());
-  di.registerSingleton<EpisodeService>(EpisodeService());
+  di.registerSingleton<ShowService>(ShowService(http: client));
+  di.registerSingleton<SeasonService>(SeasonService(http: client));
+  di.registerSingleton<EpisodeService>(EpisodeService(http: client));
 }
