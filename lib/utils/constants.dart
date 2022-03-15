@@ -22,11 +22,11 @@ class Constants{
   ///Route name for landing page
   static const String homePageRouteName = '/';
   ///Route name for search show page
-  static const String searchShowPageRouteName = 'SearchShowPage';
+  static const String searchShowPageRouteName = '/searchShowPage';
   ///Route name for show episodes page
-  static const String showEpisodesPageRouteName = 'showEpisodes';
+  static const String showEpisodesPageRouteName = '/showEpisodes';
   ///Route name for show details page
-  static const String showDetailsPageRouteName = 'showDetails';
+  static const String showDetailsPageRouteName = '/showDetails';
 
   //images
   ///Image size medium

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tv_maze/arguments/show_arguments.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tv_maze/bloc/season/season_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/generic_widgets/image_unavailable.dart';
 import 'package:tv_maze/models/show.dart';
-import 'package:tv_maze/pages/details/show_details_page.dart';
 import 'package:tv_maze/pages/search/search_no_results_found.dart';
 import 'package:tv_maze/utils/constants.dart';
 
@@ -45,19 +44,13 @@ class ExpandedShowsGridView extends StatelessWidget {
                             child: InkWell(
                               key: const Key(Constants.gridViewInkwellKey),
                               onTap: () {
-                                context.read<ShowBloc>().add(
+                                ReadContext(context).read<ShowBloc>().add(
                                     LoadShowDetailsEvent(
                                         id: showList[index].id));
-                                context.read<SeasonBloc>().add(
+                                ReadContext(context).read<SeasonBloc>().add(
                                     LoadSeasonDataEvent(showList[index].id));
 
-                                Navigator.pushNamed(
-                                  context,
-                                  ShowDetailsPage.routeName,
-                                  arguments: ShowArguments(
-                                    showList[index].id,
-                                  ),
-                                );
+                                Modular.to.pushNamed('${Constants.showDetailsPageRouteName}/${showList[index].id}');
                               },
                               child: GridTile(
                                 key: const Key(Constants.gridViewTileKey),

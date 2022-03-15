@@ -20,32 +20,34 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          actions: const <Widget>[
-            ActionSearch(),
-          ],
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Row(
-                children: const <Widget>[
-                  Text(
-                    'Shows',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  )
-                ],
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+            actions: const <Widget>[
+              ActionSearch(),
+            ],
+          ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Row(
+                  children: const <Widget>[
+                    Text(
+                      'Shows',
+                      style: TextStyle(fontSize: 24,fontWeight:FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Shows()
-          ],
-        ));
+              const SizedBox(
+                height: 20,
+              ),
+              const Shows()
+            ],
+          )),
+    );
   }
 }

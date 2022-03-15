@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
 import 'package:tv_maze/generic_widgets/expanded_show_grid_view.dart';
@@ -9,6 +10,7 @@ import 'package:tv_maze/utils/constants.dart';
 class SearchShowPage extends StatefulWidget {
   ///Constructor
   const SearchShowPage({Key? key}) : super(key: key);
+
   ///Route name for this page
   static const String routeName = Constants.searchShowPageRouteName;
   @override
@@ -19,13 +21,15 @@ class _SearchShowPageState extends State<SearchShowPage> {
   final TextEditingController inputController = TextEditingController();
 
   _onChanged(String text) {
-    context.read<ShowBloc>().add(LoadShowSearchDataEvent(query: text));
+    ReadContext(context).read<ShowBloc>().add(
+          LoadShowSearchDataEvent(query: text),
+        );
   }
 
   void backButtonAction(BuildContext context) {
     FocusScope.of(context).unfocus();
-    context.read<ShowBloc>().add(LoadShowDataEvent());
-    Navigator.pop(context);
+    ReadContext(context).read<ShowBloc>().add(LoadShowDataEvent());
+    Modular.to.pop();
   }
 
   @override

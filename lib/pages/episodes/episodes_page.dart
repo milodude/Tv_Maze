@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tv_maze/bloc/episode/episode_bloc.dart';
 import 'package:tv_maze/bloc/season/season_bloc.dart';
 import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
@@ -10,8 +11,10 @@ import 'package:tv_maze/utils/constants.dart';
 class EpisodePage extends StatefulWidget {
   ///Constructor that takes a show id as a parameter
   const EpisodePage({Key? key, required this.showId}) : super(key: key);
+
   ///Parameter show id
   final int showId;
+
   ///Route name for this page
   static const String routeName = Constants.showEpisodesPageRouteName;
 
@@ -21,8 +24,8 @@ class EpisodePage extends StatefulWidget {
 
 ///Method to execute when the floating action back button is pressed
 void backButtonAction(BuildContext context) {
-  context.read<EpisodeBloc>().add(ClearEpisodesEvent());
-  Navigator.pop(context);
+  ReadContext(context).read<EpisodeBloc>().add(ClearEpisodesEvent());
+  Modular.to.pop();
 }
 
 class _EpisodePageState extends State<EpisodePage> {
@@ -36,7 +39,9 @@ class _EpisodePageState extends State<EpisodePage> {
       body: BlocBuilder<SeasonBloc, SeasonState>(
         builder: (BuildContext context, SeasonState state) {
           if (state is SeasonInitialState) {
-            context.read<SeasonBloc>().add(LoadSeasonDataEvent(widget.showId));
+            ReadContext(context).read<SeasonBloc>().add(
+                  LoadSeasonDataEvent(widget.showId),
+                );
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const <Widget>[
@@ -51,7 +56,7 @@ class _EpisodePageState extends State<EpisodePage> {
               ],
             );
           } else if (state is SeasonLoadedState) {
-            context
+            ReadContext(context)
                 .read<EpisodeBloc>()
                 .add(LoadEpisodeDataEvent(state.seasonList[0].id));
             return SeasonEpisodes(seasonList: state.seasonList);

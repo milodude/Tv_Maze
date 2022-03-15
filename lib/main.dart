@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tv_maze/arguments/show_arguments.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:tv_maze/app_module.dart';
+// import 'package:tv_maze/arguments/show_arguments.dart';
 import 'package:tv_maze/bloc/episode/episode_bloc.dart';
 import 'package:tv_maze/bloc/season/season_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/dependency_injection.dart';
-import 'package:tv_maze/pages/details/show_details_page.dart';
-import 'package:tv_maze/pages/episodes/episodes_page.dart';
-import 'package:tv_maze/pages/home/home_page.dart';
-import 'package:tv_maze/pages/search/search_show_page.dart';
 import 'package:tv_maze/services/episode_service.dart';
 import 'package:tv_maze/services/season_service.dart';
 import 'package:tv_maze/services/show_service.dart';
@@ -16,7 +14,7 @@ import 'package:tv_maze/services/show_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDependencyInjection();
-  runApp(const AppState());
+  return runApp(ModularApp(module: AppModule(), child: const AppState()));
 }
 
 ///State of the app. Represents where the blocs are confugured.
@@ -47,46 +45,14 @@ class TvMazeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'TV Maze',
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const SafeArea(
-          child: HomePage(
-        title: 'Maze Tv',
-      )),
-      initialRoute: HomePage.routeName,
-      // ignore: always_specify_types
-      routes: {
-        SearchShowPage.routeName: (_) => const SearchShowPage(),
-      },
-      onGenerateRoute: (RouteSettings settings) {
-        if (settings.name == ShowDetailsPage.routeName) {
-          final ShowArguments args = settings.arguments as ShowArguments;
-          return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) {
-              return ShowDetailsPage(
-                showId: args.showId,
-              );
-            },
-          );
-        }
-
-        if (settings.name == EpisodePage.routeName) {
-          final ShowArguments args = settings.arguments as ShowArguments;
-          return MaterialPageRoute<dynamic>(
-            builder: (BuildContext context) {
-              return EpisodePage(
-                showId: args.showId,
-              );
-            },
-          );
-        }
-        assert(false, 'Need to implement ${settings.name}');
-        return null;
-      },
+      routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate,
     );
   }
 }

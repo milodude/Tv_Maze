@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tv_maze/bloc/season/season_bloc.dart';
 import 'package:tv_maze/bloc/show/show_bloc.dart';
 import 'package:tv_maze/generic_widgets/back_floating_action_button.dart';
@@ -19,9 +20,9 @@ class ShowDetailsPage extends StatelessWidget {
 
   ///Action to be performed when the floating action button is pressed
   void backButtonAction(BuildContext context) {
-    context.read<ShowBloc>().add(LoadShowDataEvent());
-    context.read<SeasonBloc>().add(ClearSeasonEvent());
-    Navigator.pop(context);
+    ReadContext(context).read<ShowBloc>().add(LoadShowDataEvent());
+    ReadContext(context).read<SeasonBloc>().add(ClearSeasonEvent());
+    Modular.to.pop();
   }
 
   @override
@@ -34,8 +35,10 @@ class ShowDetailsPage extends StatelessWidget {
             ShowState state,
           ) {
             if (state is ShowInitialState) {
-              context.read<ShowBloc>().add(LoadShowDataEvent());
-              context.read<SeasonBloc>().add(LoadSeasonDataEvent(showId));
+              ReadContext(context).read<ShowBloc>().add(LoadShowDataEvent());
+              ReadContext(context).read<SeasonBloc>().add(
+                    LoadSeasonDataEvent(showId),
+                  );
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const <Widget>[

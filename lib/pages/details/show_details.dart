@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tv_maze/arguments/show_arguments.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:tv_maze/generic_widgets/button.dart';
 import 'package:tv_maze/models/show.dart';
 import 'package:tv_maze/pages/episodes/episodes_page.dart';
@@ -110,13 +110,7 @@ class ShowDetails extends StatelessWidget {
   }
 
   Future<void> _sendToEpisodesPage(BuildContext context, int showId) async {
-    Navigator.pushNamed(
-      context,
-      EpisodePage.routeName,
-      arguments: ShowArguments(
-        showId,
-      ),
-    );
+    Modular.to.pushNamed(EpisodePage.routeName +  '/$showId');
   }
 
   Widget _getGenres() {
