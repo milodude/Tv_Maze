@@ -32,3 +32,14 @@ On the top -right corner you will see a search icon where you can search for an 
 Clicking on a show wether you are doing a search or just taking a peak over the show list at the home page and the app will take you to the show details. Here you can read about the show. If you want to check out the seasons episodes you click over "Seasons & episodes" button.
 
 In the Seasons & episodes section you will be able to select the season you want and it will automatically display for you the episodes for that season.It can contain extra episodes too!!
+
+## ===== Good practices =====
+Here I'm listing all the good practices used in this project in order to facilitate an example for developers on how to implement certain functionalities in a Flutter application. If they helped you with your own project do not forget to upvote(star) the repo, will mean a lot to me!  
+
+1. BLOC pattern
+2. Flutter_modular to manage routing. This also gives you the ability to apply beautiful transitions.
+3. Use of Lint. Helps you pointing out those MUST programing rules for your code to look awesome. 
+4. Testing ==> Unit, services and widgets.
+5. DI using get_it package
+6. API integration
+7. Constants usage to avoid magic strings
